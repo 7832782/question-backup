@@ -39,11 +39,24 @@ def export_database(db_path='data.db', output_path='data.json'):
         }
         questions.append(q)
     
+    # 获取所有图片（images 表），按 question_id 挂到对应题目
+    c.execute('SELECT question_id, position, data, width FROM images ORDER BY question_id, position')
+    images_by_q = {}
+    for qid, pos, data, width in c.fetchall():
+        images_by_q.setdefault(qid, []).append({
+            'position': pos,
+            'data': data,
+            'width': width,
+        })
+    for q in questions:
+        q['images'] = images_by_q.get(q['id'], [])
+    
     # 创建备份对象
     backup = {
         'version': 1,
         'exportedAt': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
         'questionCount': len(questions),
+        'imageCount': sum(len(v) for v in images_by_q.values()),
         'questions': questions
     }
     
