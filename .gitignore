@@ -48,3 +48,4 @@ clear_db.py
 *~
 .vscode/
 .idea/
+.backup_config
