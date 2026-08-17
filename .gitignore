@@ -1,0 +1,50 @@
+# 数据库文件
+*.db
+*.db-shm
+*.db-wal
+data_before_clear.db
+
+# 可执行文件
+*.exe
+
+# Python临时文件
+__pycache__/
+*.pyc
+*.pyo
+
+# 日志
+*.log
+
+# Go构建文件
+src/.tools/
+
+# PDF源文件（太大不备份）
+gaokaomath-main/
+
+# 其他临时脚本
+count_*.py
+check_*.py
+cleanup*.py
+restore_*.py
+verify.py
+find_*.py
+add_*.py
+analyze_*.py
+list_*.py
+estimate_*.py
+test_*.py
+debug_*.py
+clear_db.py
+
+# 图片文件
+*.png
+*.jpg
+*.jpeg
+*.gif
+
+# 其他
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
