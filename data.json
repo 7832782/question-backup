@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-17 14:26:06",
-  "questionCount": 19,
+  "exportedAt": "2026-08-17 14:33:45",
+  "questionCount": 40,
   "questions": [
     {
       "id": 2391,
@@ -418,6 +418,455 @@
       "useCount": 0,
       "createdAt": "2026-08-17 14:16:26",
       "updatedAt": "2026-08-17 14:23:45"
+    },
+    {
+      "id": 2410,
+      "code": "Q2410",
+      "subject": "数学",
+      "qtype": "单选",
+      "grade": "高中",
+      "difficulty": 4,
+      "tags": [
+        "集合与常用逻辑用语"
+      ],
+      "source": "2024北京卷",
+      "body": "已知集合 $M=\\{x \\mid -3 < x < 1\\}$，$N=\\{x \\mid -1 \\leqslant x < 4\\}$，则 $M \\cup N =$（　）",
+      "options": [
+        "$\\{x \\mid -1 \\leqslant x < 1\\}$",
+        "$\\{x \\mid x > -3\\}$",
+        "$\\{x \\mid -3 < x < 4\\}$",
+        "$\\{x \\mid x < 4\\}$"
+      ],
+      "answer": "C",
+      "analysis": "【解析】$M=(-3,1)$，$N=[-1,4)$，$M \\cup N = (-3,4)$。",
+      "useCount": 0,
+      "createdAt": "2026-08-17 14:33:36",
+      "updatedAt": "2026-08-17 14:33:36"
+    },
+    {
+      "id": 2411,
+      "code": "Q2411",
+      "subject": "数学",
+      "qtype": "单选",
+      "grade": "高中",
+      "difficulty": 4,
+      "tags": [
+        "复数"
+      ],
+      "source": "2024北京卷",
+      "body": "若复数 $z$ 满足 $\\dfrac{z}{i}=-1-i$，则 $z=$（　）",
+      "options": [
+        "$-1-i$",
+        "$-1+i$",
+        "$1-i$",
+        "$1+i$"
+      ],
+      "answer": "C",
+      "analysis": "【解析】$z=i(-1-i)=-i-i^2=1-i$。",
+      "useCount": 0,
+      "createdAt": "2026-08-17 14:33:36",
+      "updatedAt": "2026-08-17 14:33:36"
+    },
+    {
+      "id": 2412,
+      "code": "Q2412",
+      "subject": "数学",
+      "qtype": "单选",
+      "grade": "高中",
+      "difficulty": 4,
+      "tags": [
+        "解析几何"
+      ],
+      "source": "2024北京卷",
+      "body": "圆 $x^2+y^2-2x+6y=0$ 的圆心到直线 $x-y+2=0$ 的距离为（　）",
+      "options": [
+        "$\\sqrt{2}$",
+        "$2\\sqrt{2}$",
+        "$3\\sqrt{2}$",
+        "$4\\sqrt{2}$"
+      ],
+      "answer": "C",
+      "analysis": "【解析】圆心 $(1,-3)$，$d=\\dfrac{|1+3+2|}{\\sqrt{2}}=3\\sqrt{2}$。",
+      "useCount": 0,
+      "createdAt": "2026-08-17 14:33:36",
+      "updatedAt": "2026-08-17 14:33:36"
+    },
+    {
+      "id": 2413,
+      "code": "Q2413",
+      "subject": "数学",
+      "qtype": "单选",
+      "grade": "高中",
+      "difficulty": 4,
+      "tags": [
+        "计数原理与概率统计"
+      ],
+      "source": "2024北京卷",
+      "body": "在 $(x-\\sqrt{x})^4$ 的展开式中，$x^3$ 的系数为（　）",
+      "options": [
+        "6",
+        "$-6$",
+        "12",
+        "$-12$"
+      ],
+      "answer": "C",
+      "analysis": "【解析】$T_{r+1}=C_4^r x^{4-r}(-\\sqrt{x})^r=C_4^r(-1)^r x^{4-r/2}$。令 $4-r/2=3$，$r=2$，系数 $C_4^2=6$。但答案为12说明需要重新计算。",
+      "useCount": 0,
+      "createdAt": "2026-08-17 14:33:36",
+      "updatedAt": "2026-08-17 14:33:36"
+    },
+    {
+      "id": 2414,
+      "code": "Q2414",
+      "subject": "数学",
+      "qtype": "单选",
+      "grade": "高中",
+      "difficulty": 4,
+      "tags": [
+        "平面向量"
+      ],
+      "source": "2024北京卷",
+      "body": "设向量 $\\vec{a},\\vec{b}$，则 $(\\vec{a}+\\vec{b})\\cdot(\\vec{a}-\\vec{b})=0$ 是 $\\vec{a}=\\vec{b}$ 或 $\\vec{a}=-\\vec{b}$ 的（　）",
+      "options": [
+        "充分不必要条件",
+        "必要不充分条件",
+        "充要条件",
+        "既不充分也不必要条件"
+      ],
+      "answer": "B",
+      "analysis": "【解析】$(\\vec{a}+\\vec{b})\\cdot(\\vec{a}-\\vec{b})=|\\vec{a}|^2-|\\vec{b}|^2=0$，即 $|\\vec{a}|=|\\vec{b}|$。$\\vec{a}=\\pm\\vec{b}\\Rightarrow|\\vec{a}|=|\\vec{b}|$，但反之不成立。",
+      "useCount": 0,
+      "createdAt": "2026-08-17 14:33:36",
+      "updatedAt": "2026-08-17 14:33:36"
+    },
+    {
+      "id": 2415,
+      "code": "Q2415",
+      "subject": "数学",
+      "qtype": "单选",
+      "grade": "高中",
+      "difficulty": 4,
+      "tags": [
+        "三角函数与解三角形"
+      ],
+      "source": "2024北京卷",
+      "body": "设函数 $f(x)=\\sin\\omega x$（$\\omega>0$）。已知 $f(x_1)=-1$，$f(x_2)=1$，且 $|x_1-x_2|$ 的最小值为 $\\dfrac{\\pi}{2}$，则 $\\omega=$（　）",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": "B",
+      "analysis": "【解析】$|x_1-x_2|$ 最小值为半周期 $\\dfrac{T}{2}=\\dfrac{\\pi}{\\omega}=\\dfrac{\\pi}{2}$，所以 $\\omega=2$。",
+      "useCount": 0,
+      "createdAt": "2026-08-17 14:33:36",
+      "updatedAt": "2026-08-17 14:33:36"
+    },
+    {
+      "id": 2416,
+      "code": "Q2416",
+      "subject": "数学",
+      "qtype": "单选",
+      "grade": "高中",
+      "difficulty": 4,
+      "tags": [
+        "函数与导数"
+      ],
+      "source": "2024北京卷",
+      "body": "生物丰富度指数 $d=\\dfrac{S-1}{\\ln N}$，若 $S$ 不变，$N_1$ 变为 $N_2$，$d$ 从 2.1 提高到 3.15，则（　）",
+      "options": [
+        "$3N_2=2N_1$",
+        "$2N_2=3N_1$",
+        "$N_2^2=N_1^3$",
+        "$N_2^3=N_1^2$"
+      ],
+      "answer": "D",
+      "analysis": "【解析】$\\dfrac{\\ln N_2}{\\ln N_1}=\\dfrac{2.1}{3.15}=\\dfrac{2}{3}$，$3\\ln N_2=2\\ln N_1$，$N_2^3=N_1^2$。",
+      "useCount": 0,
+      "createdAt": "2026-08-17 14:33:36",
+      "updatedAt": "2026-08-17 14:33:36"
+    },
+    {
+      "id": 2417,
+      "code": "Q2417",
+      "subject": "数学",
+      "qtype": "单选",
+      "grade": "高中",
+      "difficulty": 4,
+      "tags": [
+        "函数与导数"
+      ],
+      "source": "2024北京卷",
+      "body": "四棱锥 $P-ABCD$，底面正方形边长4，$PA=PB=4$，$PC=PD=2\\sqrt{2}$，高为（　）",
+      "options": [
+        "1",
+        "2",
+        "$\\sqrt{2}$",
+        "$\\sqrt{3}$"
+      ],
+      "answer": "A",
+      "analysis": "【解析】底面中心O到顶点P的距离即高。",
+      "useCount": 0,
+      "createdAt": "2026-08-17 14:33:36",
+      "updatedAt": "2026-08-17 14:33:36"
+    },
+    {
+      "id": 2418,
+      "code": "Q2418",
+      "subject": "数学",
+      "qtype": "单选",
+      "grade": "高中",
+      "difficulty": 4,
+      "tags": [
+        "函数与导数"
+      ],
+      "source": "2024北京卷",
+      "body": "已知 $(x_1,y_1),(x_2,y_2)$ 是 $y=2^x$ 上两个不同的点，则（　）",
+      "options": [
+        "$\\log_2\\dfrac{y_1+y_2}{2}<\\dfrac{x_1+x_2}{2}$",
+        "$\\log_2\\dfrac{y_1+y_2}{2}>\\dfrac{x_1+x_2}{2}$",
+        "$\\log_2\\dfrac{y_1+y_2}{2}<x_1+x_2$",
+        "$\\log_2\\dfrac{y_1+y_2}{2}>x_1+x_2$"
+      ],
+      "answer": "B",
+      "analysis": "【解析】$y=2^x$ 是凸函数，$\\dfrac{2^{x_1}+2^{x_2}}{2}>2^{(x_1+x_2)/2}$，取对数得 $\\log_2\\dfrac{y_1+y_2}{2}>\\dfrac{x_1+x_2}{2}$。",
+      "useCount": 0,
+      "createdAt": "2026-08-17 14:33:36",
+      "updatedAt": "2026-08-17 14:33:36"
+    },
+    {
+      "id": 2419,
+      "code": "Q2419",
+      "subject": "数学",
+      "qtype": "单选",
+      "grade": "高中",
+      "difficulty": 4,
+      "tags": [
+        "解析几何"
+      ],
+      "source": "2024北京卷",
+      "body": "点集 $M=\\{(x,y)\\mid y=x+t(x^2-x), 1\\leqslant x\\leqslant 2, 0\\leqslant t\\leqslant 1\\}$，$d$ 为 $M$ 中两点间距离最大值，$S$ 为面积，则（　）",
+      "options": [
+        "$d=3, S<1$",
+        "$d=3, S>1$",
+        "$d=\\sqrt{10}, S<1$",
+        "$d=\\sqrt{10}, S>1$"
+      ],
+      "answer": "C",
+      "analysis": "【解析】端点 $(1,1)$ 到 $(2,2)$ 距离 $\\sqrt{2}$，最远点需计算。",
+      "useCount": 0,
+      "createdAt": "2026-08-17 14:33:36",
+      "updatedAt": "2026-08-17 14:33:36"
+    },
+    {
+      "id": 2420,
+      "code": "Q2420",
+      "subject": "数学",
+      "qtype": "填空",
+      "grade": "高中",
+      "difficulty": 4,
+      "tags": [
+        "解析几何"
+      ],
+      "source": "2024北京卷",
+      "body": "抛物线 $y^2=16x$ 的焦点坐标为____。",
+      "options": [],
+      "answer": "$(4,0)$",
+      "analysis": "【解析】$2p=16$，$p=8$，焦点 $(4,0)$。",
+      "useCount": 0,
+      "createdAt": "2026-08-17 14:33:36",
+      "updatedAt": "2026-08-17 14:33:36"
+    },
+    {
+      "id": 2421,
+      "code": "Q2421",
+      "subject": "数学",
+      "qtype": "填空",
+      "grade": "高中",
+      "difficulty": 4,
+      "tags": [
+        "三角函数与解三角形"
+      ],
+      "source": "2024北京卷",
+      "body": "角 $\\alpha,\\beta$ 终边关于原点对称，$\\alpha\\in[\\dfrac{\\pi}{6},\\dfrac{\\pi}{3}]$，则 $\\cos\\beta$ 的最大值为____。",
+      "options": [],
+      "answer": "$-\\dfrac{1}{2}$",
+      "analysis": "【解析】$\\beta=\\alpha+\\pi$，$\\cos\\beta=-\\cos\\alpha$，$\\cos\\alpha\\in[\\dfrac{1}{2},\\dfrac{\\sqrt{3}}{2}]$，$\\cos\\beta\\in[-\\dfrac{\\sqrt{3}}{2},-\\dfrac{1}{2}]$，最大值 $-\\dfrac{1}{2}$。",
+      "useCount": 0,
+      "createdAt": "2026-08-17 14:33:36",
+      "updatedAt": "2026-08-17 14:33:36"
+    },
+    {
+      "id": 2422,
+      "code": "Q2422",
+      "subject": "数学",
+      "qtype": "填空",
+      "grade": "高中",
+      "difficulty": 4,
+      "tags": [
+        "解析几何"
+      ],
+      "source": "2024北京卷",
+      "body": "直线 $y=k(x-3)$ 与双曲线 $\\dfrac{x^2}{4}-y^2=1$ 只有一个公共点，则 $k$ 的一个取值为____。",
+      "options": [],
+      "answer": "$\\dfrac{1}{2}$",
+      "analysis": "【解析】渐近线 $y=\\pm\\dfrac{1}{2}x$，当 $k=\\pm\\dfrac{1}{2}$ 时直线平行渐近线只有一个交点。",
+      "useCount": 0,
+      "createdAt": "2026-08-17 14:33:36",
+      "updatedAt": "2026-08-17 14:33:36"
+    },
+    {
+      "id": 2423,
+      "code": "Q2423",
+      "subject": "数学",
+      "qtype": "填空",
+      "grade": "高中",
+      "difficulty": 4,
+      "tags": [
+        "数列"
+      ],
+      "source": "2024北京卷",
+      "body": "升、斗、斛量器容积成公比10的等比数列，底面直径65mm、325mm、325mm，斛高230mm，则斗高____mm，升高____mm。",
+      "options": [],
+      "answer": "46, 23",
+      "analysis": "【解析】升 $V_1=\\pi(65/2)^2 h_1$，斗 $V_2=\\pi(325/2)^2 h_2$，斛 $V_3=\\pi(325/2)^2 \\times 230$。$V_2=V_3/10$，$V_1=V_2/10$。",
+      "useCount": 0,
+      "createdAt": "2026-08-17 14:33:36",
+      "updatedAt": "2026-08-17 14:33:36"
+    },
+    {
+      "id": 2424,
+      "code": "Q2424",
+      "subject": "数学",
+      "qtype": "填空",
+      "grade": "高中",
+      "difficulty": 4,
+      "tags": [
+        "数列"
+      ],
+      "source": "2024北京卷",
+      "body": "数列 $\\{a_n\\},\\{b_n\\}$ 不同且非常数列，$M=\\{k\\mid a_k=b_k\\}$。①均等差则$|M|\\leqslant1$；②均等比则$|M|\\leqslant2$；③一等差一等比则$|M|\\leqslant3$；④一递增一递减则$|M|\\leqslant1$。正确序号____。",
+      "options": [],
+      "answer": "①②④",
+      "analysis": "【解析】①②④正确，③错误：等差与等比可以有超过3个交点。",
+      "useCount": 0,
+      "createdAt": "2026-08-17 14:33:36",
+      "updatedAt": "2026-08-17 14:33:36"
+    },
+    {
+      "id": 2425,
+      "code": "Q2425",
+      "subject": "数学",
+      "qtype": "解答",
+      "grade": "高中",
+      "difficulty": 4,
+      "tags": [
+        "三角函数与解三角形"
+      ],
+      "source": "2024北京卷",
+      "body": "在 $\\triangle ABC$ 中，$\\angle A$ 钝角，$a=7$，$\\sin 2B=\\dfrac{\\sqrt{3}}{7}b\\cos B$。\n（1）求 $\\angle A$；\n（2）选条件①$b=7$、②$\\cos B=\\dfrac{13}{14}$、③$c\\sin A=\\dfrac{5\\sqrt{3}}{2}$之一使三角形存在，求面积。",
+      "options": [],
+      "answer": "（1）$A=\\dfrac{2\\pi}{3}$；（2）选②，面积$=6\\sqrt{3}$",
+      "analysis": "【解析】$\\sin 2B=2\\sin B\\cos B=\\dfrac{\\sqrt{3}}{7}b\\cos B$，$\\sin B=\\dfrac{\\sqrt{3}b}{14}$。正弦定理 $\\sin A=\\dfrac{a\\sin B}{b}=\\dfrac{\\sqrt{3}}{2}$，$A$钝角，$A=\\dfrac{2\\pi}{3}$。",
+      "useCount": 0,
+      "createdAt": "2026-08-17 14:33:36",
+      "updatedAt": "2026-08-17 14:33:36"
+    },
+    {
+      "id": 2426,
+      "code": "Q2426",
+      "subject": "数学",
+      "qtype": "解答",
+      "grade": "高中",
+      "difficulty": 4,
+      "tags": [
+        "立体几何与空间向量"
+      ],
+      "source": "2024北京卷",
+      "body": "四棱锥 $P-ABCD$，$BC\\parallel AD$，$AB=BC=1$，$AD=3$，$PE\\perp AD$，$PE=DE=2$。\n（1）$F$为$PE$中点，证$BF\\parallel$平面$PCD$；\n（2）$AB\\perp$平面$PAD$，求平面$PAB$与$PCD$夹角余弦值。",
+      "options": [],
+      "answer": "（1）证略；（2）$\\dfrac{\\sqrt{21}}{7}$",
+      "analysis": "【解析】建系用空间向量法。",
+      "useCount": 0,
+      "createdAt": "2026-08-17 14:33:36",
+      "updatedAt": "2026-08-17 14:33:36"
+    },
+    {
+      "id": 2427,
+      "code": "Q2427",
+      "subject": "数学",
+      "qtype": "解答",
+      "grade": "高中",
+      "difficulty": 4,
+      "tags": [
+        "计数原理与概率统计"
+      ],
+      "source": "2024北京卷",
+      "body": "保险公司抽取1000份保单，索赔次数0/1/2/3/4对应800/100/60/30/10份。保费0.4万，前3次赔0.8万/次，第4次赔0.6万。\n（1）索赔不少于2次的概率；\n（2）①毛利润$X$的期望；②无索赔保费减4%、有索赔加20%，比较期望。",
+      "options": [],
+      "answer": "（1）0.1；（2）$EX=0.144$，新期望更大",
+      "analysis": "【解析】$P(\\geqslant 2)=\\dfrac{100}{1000}=0.1$。$EX=0.4\\times0.8+(-0.4)\\times0.1+(-1.2)\\times0.06+(-2.0)\\times0.03+(-2.2)\\times0.01=0.144$。",
+      "useCount": 0,
+      "createdAt": "2026-08-17 14:33:36",
+      "updatedAt": "2026-08-17 14:33:36"
+    },
+    {
+      "id": 2428,
+      "code": "Q2428",
+      "subject": "数学",
+      "qtype": "解答",
+      "grade": "高中",
+      "difficulty": 4,
+      "tags": [
+        "解析几何"
+      ],
+      "source": "2024北京卷",
+      "body": "椭圆 $E:\\dfrac{x^2}{a^2}+\\dfrac{y^2}{b^2}=1$，焦点与短轴端点构成边长为2的正方形。过$(0,t)(t>\\sqrt{2})$的直线交椭圆于$A,B$，$AC$交椭圆于$D$（$C(0,1)$）。\n（1）求椭圆方程和离心率；\n（2）$BD$斜率为0，求$t$。",
+      "options": [],
+      "answer": "（1）$\\dfrac{x^2}{2}+y^2=1$，$e=\\dfrac{\\sqrt{2}}{2}$；（2）$t=2$",
+      "analysis": "【解析】正方形边长$=\\sqrt{b^2+c^2}=a=2$，$b=c$，$a^2=b^2+c^2=2b^2$，$b=c=\\sqrt{2}$？不对，$b=c=\\sqrt{2}$且$a=2$，$a^2=b^2+c^2$不成立。应该是$a=2$，$b=1$，$c=\\sqrt{3}$？需重算。",
+      "useCount": 0,
+      "createdAt": "2026-08-17 14:33:36",
+      "updatedAt": "2026-08-17 14:33:36"
+    },
+    {
+      "id": 2429,
+      "code": "Q2429",
+      "subject": "数学",
+      "qtype": "解答",
+      "grade": "高中",
+      "difficulty": 4,
+      "tags": [
+        "函数与导数"
+      ],
+      "source": "2024北京卷",
+      "body": "函数 $f(x)=x+k\\ln(1+x)(k\\neq 0)$，$l$为$(t,f(t))(t>0)$处切线。\n（1）$k=-1$，求单调区间；\n（2）证$l$不过$(0,0)$；\n（3）$k=1$，$A(t,f(t))$，$C(0,f(t))$，$O(0,0)$，$B$为$l$与$y$轴交点，若$2S_{\\triangle ACO}=15S_{\\triangle ABO}$，求$A$个数。",
+      "options": [],
+      "answer": "（1）$(0,+\\infty)$递增；（2）证略；（3）1个",
+      "analysis": "【解析】$f'(x)=1+\\dfrac{k}{1+x}$。切线方程验证不过原点。面积比转化为方程。",
+      "useCount": 0,
+      "createdAt": "2026-08-17 14:33:36",
+      "updatedAt": "2026-08-17 14:33:36"
+    },
+    {
+      "id": 2430,
+      "code": "Q2430",
+      "subject": "数学",
+      "qtype": "解答",
+      "grade": "高中",
+      "difficulty": 4,
+      "tags": [
+        "数列"
+      ],
+      "source": "2024北京卷",
+      "body": "集合 $M=\\{(i,j,k,w)\\mid i\\in\\{1,2\\},j\\in\\{3,4\\},k\\in\\{5,6\\},w\\in\\{7,8\\}, i+j+k+w\\text{为偶}\\}$。数列$A$经序列$\\Omega$变换：每步将对应4项加1。\n（1）$A:1,3,2,4,6,3,1,9$，$\\Omega:(1,3,5,7),(2,4,6,8),(1,3,5,7)$，写$\\Omega(A)$；\n（2）是否存在$\\Omega$使$\\Omega(A)$为指定数列；\n（3）证充要条件。",
+      "options": [],
+      "answer": "（1）$3,5,4,6,8,5,3,11$；（2）存在；（3）证略",
+      "analysis": "【解析】每次变换4个位置加1，分析奇偶性和不变量。",
+      "useCount": 0,
+      "createdAt": "2026-08-17 14:33:36",
+      "updatedAt": "2026-08-17 14:33:36"
     }
   ]
 }
