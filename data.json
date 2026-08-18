@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-18 13:44:59",
+  "exportedAt": "2026-08-18 13:52:35",
   "questionCount": 165,
   "imageCount": 13,
   "questions": [
@@ -1620,7 +1620,7 @@
         "立体几何与空间向量"
       ],
       "source": "2024全国甲卷(理)",
-      "body": "设 $\\alpha,\\beta$ 为两个平面，$m,n$ 为两条直线，且 $\\alpha\\cap\\beta=m$。下述四个命题：\\n①若 $m\\parallel n$，则 $n\\parallel\\alpha$ 或 $n\\parallel\\beta$；\\n②若 $m\\perp n$，则 $n\\perp\\alpha$ 或 $n\\perp\\beta$；\\n③若 $n\\parallel\\alpha$ 且 $n\\parallel\\beta$，则 $m\\parallel n$；\\n④若 $n$ 与 $\\alpha,\\beta$ 所成的角相等，则 $m\\perp n$。\\n其中所有真命题的编号是",
+      "body": "设 $\\alpha,\\beta$ 为两个平面，$m,n$ 为两条直线，且 $\\alpha\\cap\\beta=m$。下述四个命题：\n①若 $m\\parallel n$，则 $n\\parallel\\alpha$ 或 $n\\parallel\\beta$；\n②若 $m\\perp n$，则 $n\\perp\\alpha$ 或 $n\\perp\\beta$；\n③若 $n\\parallel\\alpha$ 且 $n\\parallel\\beta$，则 $m\\parallel n$；\n④若 $n$ 与 $\\alpha,\\beta$ 所成的角相等，则 $m\\perp n$。\n其中所有真命题的编号是",
       "options": [
         "①③",
         "②④",
@@ -1631,7 +1631,7 @@
       "analysis": "①真：若 $m\\parallel n$，则 $n$ 平行于交线 $m$，故 $n\\parallel\\alpha$ 或 $n\\parallel\\beta$（或与之一共面但不相交）。③真：若 $n\\parallel\\alpha$ 且 $n\\parallel\\beta$，可推 $n\\parallel m$。②假：取 $n$ 在 $\\alpha$ 内且与 $m$ 垂直，则 $m\\perp n$，但 $n\\subset\\alpha$ 不垂直 $\\alpha$ 也不垂直 $\\beta$。④假：反例可构造 $n$ 与两平面成等角但 $n$ 不垂直 $m$。故真命题为①③。选 A。",
       "useCount": 0,
       "createdAt": "2026-08-18 00:48:39",
-      "updatedAt": "2026-08-18 00:48:39",
+      "updatedAt": "2026-08-18 13:50:46",
       "images": []
     },
     {
@@ -1775,13 +1775,13 @@
         "计数原理与概率统计"
       ],
       "source": "2024全国甲卷(理)",
-      "body": "某工厂进行生产线智能化升级改造。升级改造后，从该工厂甲、乙两个车间的产品中随机抽取150件进行检验，数据如下：\\n优级品　合格品　不合格品　总计\\n甲车间　26　　24　　0　　　　50\\n乙车间　70　　28　　2　　　　100\\n总计　　96　　52　　2　　　　150\\n（1）填写如下列联表：\\n优级品　非优级品\\n甲车间\\n乙车间\\n能否有95%的把握认为甲、乙两车间产品的优级品率存在差异？能否有99%的把握认为甲、乙两车间产品的优级品率存在差异？\\n（2）已知升级改造前该工厂产品的优级品率 $p=0.5$。设 $\\hat p$ 为升级改造后抽取的 $n$ 件产品的优级品率，如果 $\\hat p>p+1.65\\sqrt{\\frac{p(1-p)}{n}}$，则认为该工厂产品的优级品率提高了。根据抽取的150件产品的数据，能否认为生产线智能化升级改造后，该工厂产品的优级品率提高了？（$\\sqrt{150}\\approx12.247$）\\n附：$K^2=\\frac{n(ad-bc)^2}{(a+b)(c+d)(a+c)(b+d)}$，\\n$P(K^2\\geqslant k)$　0.050　0.010　0.001\\n$k$　　　　　　　3.841　6.635　10.828",
+      "body": "某工厂进行生产线智能化升级改造。升级改造后，从该工厂甲、乙两个车间的产品中随机抽取150件进行检验，数据如下：\n优级品　合格品　不合格品　总计\n甲车间　26　　24　　0　　　　50\n乙车间　70　　28　　2　　　　100\n总计　　96　　52　　2　　　　150\n（1）填写如下列联表：\n优级品　非优级品\n甲车间\n乙车间\n能否有95%的把握认为甲、乙两车间产品的优级品率存在差异？能否有99%的把握认为甲、乙两车间产品的优级品率存在差异？\n（2）已知升级改造前该工厂产品的优级品率 $p=0.5$。设 $\\hat p$ 为升级改造后抽取的 $n$ 件产品的优级品率，如果 $\\hat p>p+1.65\\sqrt{\\frac{p(1-p)}{n}}$，则认为该工厂产品的优级品率提高了。根据抽取的150件产品的数据，能否认为生产线智能化升级改造后，该工厂产品的优级品率提高了？（$\\sqrt{150}\\approx12.247$）\n附：$K^2=\\frac{n(ad-bc)^2}{(a+b)(c+d)(a+c)(b+d)}$，\n$P(K^2\\geqslant k)$　0.050　0.010　0.001\n$k$　　　　　　　3.841　6.635　10.828",
       "options": [],
       "answer": "（1）列联表：甲车间优级品26、非优级品24；乙车间优级品70、非优级品30。有95%的把握认为存在差异，没有99%的把握认为存在差异。（2）能认为优级品率提高了。",
       "analysis": "（1）非优级品：甲 $50-26=24$，乙 $100-70=30$。$K^2=\\frac{150(26\\times30-24\\times70)^2}{50\\times100\\times96\\times54}=\\frac{150\\times900^2}{25920000}=4.6875$。因 $3.841<4.6875<6.635$，故有95%把握认为存在差异，没有99%把握。（2）$\\hat p=\\frac{96}{150}=0.64$，阈值 $0.5+1.65\\sqrt{\\frac{0.25}{150}}=0.5+\\frac{1.65}{\\sqrt{600}}\\approx0.5+0.06735=0.56735$。因 $0.64>0.56735$，故能认为优级品率提高了。",
       "useCount": 0,
       "createdAt": "2026-08-18 00:48:39",
-      "updatedAt": "2026-08-18 00:48:39",
+      "updatedAt": "2026-08-18 13:50:46",
       "images": []
     },
     {
@@ -1795,13 +1795,13 @@
         "数列"
       ],
       "source": "2024全国甲卷(理)",
-      "body": "记 $S_n$ 为数列 $\\{a_n\\}$ 的前 $n$ 项和，已知 $4S_n=3a_n+4$。\\n（1）求 $\\{a_n\\}$ 的通项公式；\\n（2）设 $b_n=(-1)^{n-1}na_n$，求数列 $\\{b_n\\}$ 的前 $n$ 项和 $T_n$。",
+      "body": "记 $S_n$ 为数列 $\\{a_n\\}$ 的前 $n$ 项和，已知 $4S_n=3a_n+4$。\n（1）求 $\\{a_n\\}$ 的通项公式；\n（2）设 $b_n=(-1)^{n-1}na_n$，求数列 $\\{b_n\\}$ 的前 $n$ 项和 $T_n$。",
       "options": [],
       "answer": "（1）$a_n=4\\cdot(-3)^{n-1}$；（2）$T_n=(2n-1)\\cdot3^n+1$。",
-      "analysis": "（1）$n=1$：$4a_1=3a_1+4\\Rightarrow a_1=4$。$n\\geqslant2$：$4S_n=3a_n+4$，$4S_{n-1}=3a_{n-1}+4$，相减得 $4a_n=3a_n-3a_{n-1}\\Rightarrow a_n=-3a_{n-1}$。故 $\\{a_n\\}$ 是首项4、公比$-3$的等比数列，$a_n=4(-3)^{n-1}$。\\n（2）$b_n=(-1)^{n-1}n\\cdot4(-3)^{n-1}=4n\\cdot3^{n-1}$。$T_n=\\sum_{k=1}^n4k\\cdot3^{k-1}=4\\cdot\\frac{1+(2n-1)3^n}{4}=1+(2n-1)3^n$。",
+      "analysis": "（1）$n=1$：$4a_1=3a_1+4\\Rightarrow a_1=4$。$n\\geqslant2$：$4S_n=3a_n+4$，$4S_{n-1}=3a_{n-1}+4$，相减得 $4a_n=3a_n-3a_{n-1}\\Rightarrow a_n=-3a_{n-1}$。故 $\\{a_n\\}$ 是首项4、公比$-3$的等比数列，$a_n=4(-3)^{n-1}$。\n（2）$b_n=(-1)^{n-1}n\\cdot4(-3)^{n-1}=4n\\cdot3^{n-1}$。$T_n=\\sum_{k=1}^n4k\\cdot3^{k-1}=4\\cdot\\frac{1+(2n-1)3^n}{4}=1+(2n-1)3^n$。",
       "useCount": 0,
       "createdAt": "2026-08-18 00:48:39",
-      "updatedAt": "2026-08-18 00:48:39",
+      "updatedAt": "2026-08-18 13:50:46",
       "images": []
     },
     {
@@ -1815,13 +1815,13 @@
         "立体几何与空间向量"
       ],
       "source": "2024全国甲卷(理)",
-      "body": "如图，在以 $A,B,C,D,E,F$ 为顶点的五面体中，四边形 $ABCD$ 与四边形 $ADEF$ 均为等腰梯形，$EF\\parallel AD$，$BC\\parallel AD$，$AD=4$，$AB=BC=EF=2$，$ED=\\sqrt{10}$，$FB=2\\sqrt3$，$M$ 为 $AD$ 的中点。\\n（1）证明：$BM\\parallel$ 平面 $CDE$；\\n（2）求二面角 $F-BM-E$ 的正弦值。",
+      "body": "如图，在以 $A,B,C,D,E,F$ 为顶点的五面体中，四边形 $ABCD$ 与四边形 $ADEF$ 均为等腰梯形，$EF\\parallel AD$，$BC\\parallel AD$，$AD=4$，$AB=BC=EF=2$，$ED=\\sqrt{10}$，$FB=2\\sqrt3$，$M$ 为 $AD$ 的中点。\n（1）证明：$BM\\parallel$ 平面 $CDE$；\n（2）求二面角 $F-BM-E$ 的正弦值。",
       "options": [],
       "answer": "（1）证明见解析；（2）$\\dfrac{4\\sqrt3}{13}$。",
-      "analysis": "取 $M$ 为原点，$AD$ 为 $x$ 轴。由梯形得 $A(-2,0,0),D(2,0,0),M(0,0,0),B(-1,\\sqrt3,0),C(1,\\sqrt3,0)$；由 $ADEF$ 为等腰梯形且 $ED=\\sqrt{10},FB=2\\sqrt3$ 解得 $E(1,0,3),F(-1,0,3)$。\\n（1）$\\overrightarrow{BM}=(1,-\\sqrt3,0)$，平面 $CDE$ 法向量可取 $\\boldsymbol n=(3,\\sqrt3,1)$，因 $\\overrightarrow{BM}\\cdot\\boldsymbol n=0$ 且 $M\\notin$ 平面 $CDE$，故 $BM\\parallel$ 平面 $CDE$。\\n（2）平面 $BMF$ 法向量 $\\boldsymbol n_1=(3\\sqrt3,3,\\sqrt3)$，平面 $BME$ 法向量 $\\boldsymbol n_2=(3\\sqrt3,3,-\\sqrt3)$。$\\cos\\theta=\\frac{|\\boldsymbol n_1\\cdot\\boldsymbol n_2|}{|\\boldsymbol n_1||\\boldsymbol n_2|}=\\frac{33}{39}=\\frac{11}{13}$，故 $\\sin\\theta=\\sqrt{1-(11/13)^2}=\\frac{4\\sqrt3}{13}$。",
+      "analysis": "取 $M$ 为原点，$AD$ 为 $x$ 轴。由梯形得 $A(-2,0,0),D(2,0,0),M(0,0,0),B(-1,\\sqrt3,0),C(1,\\sqrt3,0)$；由 $ADEF$ 为等腰梯形且 $ED=\\sqrt{10},FB=2\\sqrt3$ 解得 $E(1,0,3),F(-1,0,3)$。\n（1）$\\overrightarrow{BM}=(1,-\\sqrt3,0)$，平面 $CDE$ 法向量可取 $\\boldsymbol n=(3,\\sqrt3,1)$，因 $\\overrightarrow{BM}\\cdot\\boldsymbol n=0$ 且 $M\\notin$ 平面 $CDE$，故 $BM\\parallel$ 平面 $CDE$。\n（2）平面 $BMF$ 法向量 $\\boldsymbol n_1=(3\\sqrt3,3,\\sqrt3)$，平面 $BME$ 法向量 $\\boldsymbol n_2=(3\\sqrt3,3,-\\sqrt3)$。$\\cos\\theta=\\frac{|\\boldsymbol n_1\\cdot\\boldsymbol n_2|}{|\\boldsymbol n_1||\\boldsymbol n_2|}=\\frac{33}{39}=\\frac{11}{13}$，故 $\\sin\\theta=\\sqrt{1-(11/13)^2}=\\frac{4\\sqrt3}{13}$。",
       "useCount": 0,
       "createdAt": "2026-08-18 00:48:39",
-      "updatedAt": "2026-08-18 01:45:20",
+      "updatedAt": "2026-08-18 13:50:46",
       "images": [
         {
           "position": 0,
@@ -1841,13 +1841,13 @@
         "解析几何"
       ],
       "source": "2024全国甲卷(理)",
-      "body": "设椭圆 $C:\\dfrac{x^2}{a^2}+\\dfrac{y^2}{b^2}=1\\ (a>b>0)$ 的右焦点为 $F$，点 $M\\left(1,\\dfrac32\\right)$ 在 $C$ 上，且 $MF\\perp x$ 轴。\\n（1）求 $C$ 的方程；\\n（2）过点 $P(4,0)$ 的直线交 $C$ 于 $A,B$ 两点，$N$ 为线段 $FP$ 的中点，直线 $NB$ 交直线 $MF$ 于点 $Q$，证明：$AQ\\perp y$ 轴。",
+      "body": "设椭圆 $C:\\dfrac{x^2}{a^2}+\\dfrac{y^2}{b^2}=1\\ (a>b>0)$ 的右焦点为 $F$，点 $M\\left(1,\\dfrac32\\right)$ 在 $C$ 上，且 $MF\\perp x$ 轴。\n（1）求 $C$ 的方程；\n（2）过点 $P(4,0)$ 的直线交 $C$ 于 $A,B$ 两点，$N$ 为线段 $FP$ 的中点，直线 $NB$ 交直线 $MF$ 于点 $Q$，证明：$AQ\\perp y$ 轴。",
       "options": [],
       "answer": "（1）$\\dfrac{x^2}{4}+\\dfrac{y^2}{3}=1$；（2）证明见解析。",
-      "analysis": "（1）$MF\\perp x$ 轴且 $M(1,3/2)$，故右焦点 $F(1,0)$，$c=1$，$a^2-b^2=1$。$M$ 在椭圆上：$\\frac1{a^2}+\\frac{9/4}{b^2}=1$。代入 $a^2=b^2+1$ 得 $\\frac1{b^2+1}+\\frac{9}{4b^2}=1\\Rightarrow4b^4-9b^2-9=0\\Rightarrow b^2=3$（$b^2>0$），$a^2=4$。方程为 $\\frac{x^2}{4}+\\frac{y^2}{3}=1$。\\n（2）$N$ 为 $FP$ 中点，$F(1,0),P(4,0)\\Rightarrow N(5/2,0)$；$MF$ 为直线 $x=1$。设过 $P$ 直线参数，联立椭圆得 $A,B$ 坐标关系，可证直线 $NB$ 与 $x=1$ 的交点 $Q$ 的纵坐标等于 $A$ 的纵坐标，从而 $AQ$ 水平，即 $AQ\\perp y$ 轴。",
+      "analysis": "（1）$MF\\perp x$ 轴且 $M(1,3/2)$，故右焦点 $F(1,0)$，$c=1$，$a^2-b^2=1$。$M$ 在椭圆上：$\\frac1{a^2}+\\frac{9/4}{b^2}=1$。代入 $a^2=b^2+1$ 得 $\\frac1{b^2+1}+\\frac{9}{4b^2}=1\\Rightarrow4b^4-9b^2-9=0\\Rightarrow b^2=3$（$b^2>0$），$a^2=4$。方程为 $\\frac{x^2}{4}+\\frac{y^2}{3}=1$。\n（2）$N$ 为 $FP$ 中点，$F(1,0),P(4,0)\\Rightarrow N(5/2,0)$；$MF$ 为直线 $x=1$。设过 $P$ 直线参数，联立椭圆得 $A,B$ 坐标关系，可证直线 $NB$ 与 $x=1$ 的交点 $Q$ 的纵坐标等于 $A$ 的纵坐标，从而 $AQ$ 水平，即 $AQ\\perp y$ 轴。",
       "useCount": 0,
       "createdAt": "2026-08-18 00:48:39",
-      "updatedAt": "2026-08-18 00:48:39",
+      "updatedAt": "2026-08-18 13:50:46",
       "images": []
     },
     {
@@ -1861,13 +1861,13 @@
         "函数与导数"
       ],
       "source": "2024全国甲卷(理)",
-      "body": "已知函数 $f(x)=(1-ax)\\ln(1+x)-x$。\\n（1）若 $a=-2$，求 $f(x)$ 的极值；\\n（2）当 $x\\geqslant0$ 时，$f(x)\\geqslant0$，求 $a$ 的取值范围。",
+      "body": "已知函数 $f(x)=(1-ax)\\ln(1+x)-x$。\n（1）若 $a=-2$，求 $f(x)$ 的极值；\n（2）当 $x\\geqslant0$ 时，$f(x)\\geqslant0$，求 $a$ 的取值范围。",
       "options": [],
       "answer": "（1）极小值为 $0$，无极大值；（2）$a\\leqslant-\\dfrac12$。",
-      "analysis": "（1）$a=-2$ 时 $f(x)=(1+2x)\\ln(1+x)-x$，$f'(x)=2\\ln(1+x)+\\frac{x}{1+x}$。$f''(x)=\\frac{2}{1+x}+\\frac{1}{(1+x)^2}>0$，故 $f'(x)$ 增，且 $f'(0)=0$，所以 $x<0$ 时 $f'<0$、$x>0$ 时 $f'>0$，$f$ 在 $x=0$ 取极小值 $f(0)=0$，无极大值。\\n（2）$f(0)=0$，$f'(x)=-a\\ln(1+x)-\\frac{x(a+1)}{1+x}$。当 $x\\to0^+$ 时 $f'(x)\\sim-(2a+1)x$。要使 $f(x)\\geqslant0$，须 $f'(0^+)\\geqslant0$，即 $-(2a+1)\\geqslant0\\Rightarrow a\\leqslant-1/2$。当 $a\\leqslant-1/2$ 时可证 $f'(x)\\geqslant0$（如 $a=-1/2$ 时 $f'(x)=\\frac12[\\ln(1+x)-\\frac{x}{1+x}]\\geqslant0$），故 $f(x)\\geqslant0$。综上 $a\\leqslant-1/2$。",
+      "analysis": "（1）$a=-2$ 时 $f(x)=(1+2x)\\ln(1+x)-x$，$f'(x)=2\\ln(1+x)+\\frac{x}{1+x}$。$f''(x)=\\frac{2}{1+x}+\\frac{1}{(1+x)^2}>0$，故 $f'(x)$ 增，且 $f'(0)=0$，所以 $x<0$ 时 $f'<0$、$x>0$ 时 $f'>0$，$f$ 在 $x=0$ 取极小值 $f(0)=0$，无极大值。\n（2）$f(0)=0$，$f'(x)=-a\\ln(1+x)-\\frac{x(a+1)}{1+x}$。当 $x\\to0^+$ 时 $f'(x)\\sim-(2a+1)x$。要使 $f(x)\\geqslant0$，须 $f'(0^+)\\geqslant0$，即 $-(2a+1)\\geqslant0\\Rightarrow a\\leqslant-1/2$。当 $a\\leqslant-1/2$ 时可证 $f'(x)\\geqslant0$（如 $a=-1/2$ 时 $f'(x)=\\frac12[\\ln(1+x)-\\frac{x}{1+x}]\\geqslant0$），故 $f(x)\\geqslant0$。综上 $a\\leqslant-1/2$。",
       "useCount": 0,
       "createdAt": "2026-08-18 00:48:39",
-      "updatedAt": "2026-08-18 00:48:39",
+      "updatedAt": "2026-08-18 13:50:46",
       "images": []
     },
     {
@@ -1881,13 +1881,13 @@
         "解析几何"
       ],
       "source": "2024全国甲卷(理)",
-      "body": "在直角坐标系 $xOy$ 中，以坐标原点为极点，$x$ 轴正半轴为极轴建立极坐标系，曲线 $C$ 的极坐标方程为 $\\rho=\\rho\\cos\\theta+1$。\\n（1）写出 $C$ 的直角坐标方程；\\n（2）设直线 $l:\\begin{cases}x=t,\\\\ y=t+a\\end{cases}$（$t$ 为参数），若 $C$ 与 $l$ 相交于 $A,B$ 两点，且 $|AB|=2$，求 $a$。",
+      "body": "在直角坐标系 $xOy$ 中，以坐标原点为极点，$x$ 轴正半轴为极轴建立极坐标系，曲线 $C$ 的极坐标方程为 $\\rho=\\rho\\cos\\theta+1$。\n（1）写出 $C$ 的直角坐标方程；\n（2）设直线 $l:\\begin{cases}x=t,\\\\ y=t+a\\end{cases}$（$t$ 为参数），若 $C$ 与 $l$ 相交于 $A,B$ 两点，且 $|AB|=2$，求 $a$。",
       "options": [],
       "answer": "（1）$y^2=2x+1$；（2）$a=\\dfrac34$。",
-      "analysis": "（1）$\\rho=\\rho\\cos\\theta+1\\Rightarrow \\rho=x+1$，平方得 $x^2+y^2=(x+1)^2\\Rightarrow y^2=2x+1$。\\n（2）直线 $l:y=x+a$。与 $y^2=2x+1$ 联立：$(x+a)^2=2x+1\\Rightarrow x^2+2(a-1)x+(a^2-1)=0$。设两根 $x_1,x_2$，则 $|x_1-x_2|=2\\sqrt{2-2a}$。$|AB|=\\sqrt2\\,|x_1-x_2|=4\\sqrt{1-a}$。由 $|AB|=2$ 得 $4\\sqrt{1-a}=2\\Rightarrow1-a=\\frac14\\Rightarrow a=\\frac34$。",
+      "analysis": "（1）$\\rho=\\rho\\cos\\theta+1\\Rightarrow \\rho=x+1$，平方得 $x^2+y^2=(x+1)^2\\Rightarrow y^2=2x+1$。\n（2）直线 $l:y=x+a$。与 $y^2=2x+1$ 联立：$(x+a)^2=2x+1\\Rightarrow x^2+2(a-1)x+(a^2-1)=0$。设两根 $x_1,x_2$，则 $|x_1-x_2|=2\\sqrt{2-2a}$。$|AB|=\\sqrt2\\,|x_1-x_2|=4\\sqrt{1-a}$。由 $|AB|=2$ 得 $4\\sqrt{1-a}=2\\Rightarrow1-a=\\frac14\\Rightarrow a=\\frac34$。",
       "useCount": 0,
       "createdAt": "2026-08-18 00:48:39",
-      "updatedAt": "2026-08-18 00:48:39",
+      "updatedAt": "2026-08-18 13:50:46",
       "images": []
     },
     {
@@ -1901,13 +1901,13 @@
         "不等式"
       ],
       "source": "2024全国甲卷(理)",
-      "body": "已知实数 $a,b$ 满足 $a+b\\geqslant3$。\\n（1）证明：$2a^2+2b^2>a+b$；\\n（2）证明：$|a-2b^2|+|b-2a^2|\\geqslant6$。",
+      "body": "已知实数 $a,b$ 满足 $a+b\\geqslant3$。\n（1）证明：$2a^2+2b^2>a+b$；\n（2）证明：$|a-2b^2|+|b-2a^2|\\geqslant6$。",
       "options": [],
       "answer": "（1）（2）证明见解析。",
-      "analysis": "（1）对固定 $s=a+b\\geqslant3$，$2a^2+2b^2-a-b$ 在 $a=b=s/2$ 时取最小，值为 $2\\cdot\\frac{s^2}{4}-s=\\frac{s^2}{2}-s\\geqslant\\frac92-3=\\frac32>0$，故 $2a^2+2b^2>a+b$。\\n（2）设 $a+b=3$ 时（和更大时值更大），令 $a=\\frac32+t,\\ b=\\frac32-t$。则 $b-2a^2=\\frac32-t-2(\\frac32+t)^2=-3-7t-2t^2<0$，故该项绝对值为 $3+7t+2t^2$。而 $a-2b^2=\\frac32+t-2(\\frac32-t)^2=-3+7t-2t^2$；当 $|t|\\leqslant1/2$ 时其为非正，绝对值为 $3-7t+2t^2$，和为 $6+4t^2\\geqslant6$；当 $|t|>1/2$ 时绝对值和为 $14|t|>7>6$。故恒有 $|a-2b^2|+|b-2a^2|\\geqslant6$，等号在 $a=b=3/2$ 时取到。",
+      "analysis": "（1）对固定 $s=a+b\\geqslant3$，$2a^2+2b^2-a-b$ 在 $a=b=s/2$ 时取最小，值为 $2\\cdot\\frac{s^2}{4}-s=\\frac{s^2}{2}-s\\geqslant\\frac92-3=\\frac32>0$，故 $2a^2+2b^2>a+b$。\n（2）设 $a+b=3$ 时（和更大时值更大），令 $a=\\frac32+t,\\ b=\\frac32-t$。则 $b-2a^2=\\frac32-t-2(\\frac32+t)^2=-3-7t-2t^2<0$，故该项绝对值为 $3+7t+2t^2$。而 $a-2b^2=\\frac32+t-2(\\frac32-t)^2=-3+7t-2t^2$；当 $|t|\\leqslant1/2$ 时其为非正，绝对值为 $3-7t+2t^2$，和为 $6+4t^2\\geqslant6$；当 $|t|>1/2$ 时绝对值和为 $14|t|>7>6$。故恒有 $|a-2b^2|+|b-2a^2|\\geqslant6$，等号在 $a=b=3/2$ 时取到。",
       "useCount": 0,
       "createdAt": "2026-08-18 00:48:39",
-      "updatedAt": "2026-08-18 00:48:39",
+      "updatedAt": "2026-08-18 13:50:46",
       "images": []
     },
     {
@@ -3240,13 +3240,13 @@
         "三角函数与解三角形"
       ],
       "source": "2024新高考II卷",
-      "body": "记$\\triangle ABC$的内角$A,B,C$的对边分别为$a,b,c$，已知$\\sin A+\\sqrt{3}\\cos A=2$。\\n（1）求$A$；\\n（2）若$a=2$，$\\sqrt{2}b\\sin C=c\\sin 2B$，求$\\triangle ABC$的周长。",
+      "body": "记$\\triangle ABC$的内角$A,B,C$的对边分别为$a,b,c$，已知$\\sin A+\\sqrt{3}\\cos A=2$。\n（1）求$A$；\n（2）若$a=2$，$\\sqrt{2}b\\sin C=c\\sin 2B$，求$\\triangle ABC$的周长。",
       "options": [],
       "answer": "（1）$A=\\dfrac{\\pi}{6}$；（2）$2+\\sqrt{6}+3\\sqrt{2}$",
-      "analysis": "（1）$\\sin A+\\sqrt3\\cos A=2\\sin(A+\\frac{\\pi}{3})=2$，且$A\\in(0,\\pi)$，故$A+\\frac{\\pi}{3}=\\frac{\\pi}{2}$，$A=\\frac{\\pi}{6}$。\\n（2）由正弦定理，$\\sqrt2b\\sin C=c\\sin2B$化为$\\sqrt2\\sin B\\sin C=2\\sin C\\sin B\\cos B$，得$\\cos B=\\frac{\\sqrt2}{2}$，$B=\\frac{\\pi}{4}$，$C=\\pi-A-B=\\frac{7\\pi}{12}$。再由正弦定理，$\\frac{a}{\\sin A}=4$，$b=4\\sin B=2\\sqrt2$，$c=4\\sin\\frac{7\\pi}{12}=\\sqrt6+\\sqrt2$。周长为$2+2\\sqrt2+\\sqrt6+\\sqrt2=2+\\sqrt6+3\\sqrt2$。",
+      "analysis": "（1）$\\sin A+\\sqrt3\\cos A=2\\sin(A+\\frac{\\pi}{3})=2$，且$A\\in(0,\\pi)$，故$A+\\frac{\\pi}{3}=\\frac{\\pi}{2}$，$A=\\frac{\\pi}{6}$。\n（2）由正弦定理，$\\sqrt2b\\sin C=c\\sin2B$化为$\\sqrt2\\sin B\\sin C=2\\sin C\\sin B\\cos B$，得$\\cos B=\\frac{\\sqrt2}{2}$，$B=\\frac{\\pi}{4}$，$C=\\pi-A-B=\\frac{7\\pi}{12}$。再由正弦定理，$\\frac{a}{\\sin A}=4$，$b=4\\sin B=2\\sqrt2$，$c=4\\sin\\frac{7\\pi}{12}=\\sqrt6+\\sqrt2$。周长为$2+2\\sqrt2+\\sqrt6+\\sqrt2=2+\\sqrt6+3\\sqrt2$。",
       "useCount": 0,
       "createdAt": "2026-08-18 00:57:59",
-      "updatedAt": "2026-08-18 00:57:59",
+      "updatedAt": "2026-08-18 13:50:46",
       "images": []
     },
     {
@@ -3260,13 +3260,13 @@
         "函数与导数"
       ],
       "source": "2024新高考II卷",
-      "body": "已知函数$f(x)=\\mathrm{e}^x-ax-a^3$。\\n（1）当$a=1$时，求曲线$y=f(x)$在点$(1,f(1))$处的切线方程；\\n（2）若$f(x)$有极小值，且极小值小于0，求$a$的取值范围。",
+      "body": "已知函数$f(x)=\\mathrm{e}^x-ax-a^3$。\n（1）当$a=1$时，求曲线$y=f(x)$在点$(1,f(1))$处的切线方程；\n（2）若$f(x)$有极小值，且极小值小于0，求$a$的取值范围。",
       "options": [],
       "answer": "（1）$(\\mathrm{e}-1)x-y-1=0$；（2）$(1,+\\infty)$",
-      "analysis": "（1）$a=1$时$f(x)=\\mathrm{e}^x-x-1$，$f(1)=\\mathrm{e}-2$，$f'(x)=\\mathrm{e}^x-1$，$f'(1)=\\mathrm{e}-1$。切线方程为$y-(\\mathrm{e}-2)=(\\mathrm{e}-1)(x-1)$，即$(\\mathrm{e}-1)x-y-1=0$。\\n（2）$f'(x)=\\mathrm{e}^x-a$。当$a\\le0$时$f'(x)>0$，无极值；当$a>0$时极小值点$x=\\ln a$，极小值为$f(\\ln a)=a-a\\ln a-a^3=a(1-\\ln a-a^2)$。令$f(\\ln a)<0$得$1-\\ln a-a^2<0$。令$g(a)=\\ln a+a^2$，$g(a)$在$(0,+\\infty)$单调递增且$g(1)=1$，故$g(a)>1$等价于$a>1$。所以$a\\in(1,+\\infty)$。",
+      "analysis": "（1）$a=1$时$f(x)=\\mathrm{e}^x-x-1$，$f(1)=\\mathrm{e}-2$，$f'(x)=\\mathrm{e}^x-1$，$f'(1)=\\mathrm{e}-1$。切线方程为$y-(\\mathrm{e}-2)=(\\mathrm{e}-1)(x-1)$，即$(\\mathrm{e}-1)x-y-1=0$。\n（2）$f'(x)=\\mathrm{e}^x-a$。当$a\\le0$时$f'(x)>0$，无极值；当$a>0$时极小值点$x=\\ln a$，极小值为$f(\\ln a)=a-a\\ln a-a^3=a(1-\\ln a-a^2)$。令$f(\\ln a)<0$得$1-\\ln a-a^2<0$。令$g(a)=\\ln a+a^2$，$g(a)$在$(0,+\\infty)$单调递增且$g(1)=1$，故$g(a)>1$等价于$a>1$。所以$a\\in(1,+\\infty)$。",
       "useCount": 0,
       "createdAt": "2026-08-18 00:57:59",
-      "updatedAt": "2026-08-18 00:57:59",
+      "updatedAt": "2026-08-18 13:50:46",
       "images": []
     },
     {
@@ -3280,13 +3280,13 @@
         "立体几何与空间向量"
       ],
       "source": "2024新高考II卷",
-      "body": "如图，平面四边形$ABCD$中，$AB=8$，$CD=3$，$AD=5\\sqrt{3}$，$\\angle ADC=90^\\circ$，$\\angle BAD=30^\\circ$，点$E,F$满足$\\overrightarrow{AE}=\\dfrac{2}{5}\\overrightarrow{AD}$，$\\overrightarrow{AF}=\\dfrac{1}{2}\\overrightarrow{AB}$，将$\\triangle AEF$沿$EF$翻折至$\\triangle PEF$，使得$PC=4\\sqrt{3}$。\\n（1）证明：$EF\\perp PD$；\\n（2）求面$PCD$与面$PBF$所成的二面角的正弦值。",
+      "body": "如图，平面四边形$ABCD$中，$AB=8$，$CD=3$，$AD=5\\sqrt{3}$，$\\angle ADC=90^\\circ$，$\\angle BAD=30^\\circ$，点$E,F$满足$\\overrightarrow{AE}=\\dfrac{2}{5}\\overrightarrow{AD}$，$\\overrightarrow{AF}=\\dfrac{1}{2}\\overrightarrow{AB}$，将$\\triangle AEF$沿$EF$翻折至$\\triangle PEF$，使得$PC=4\\sqrt{3}$。\n（1）证明：$EF\\perp PD$；\n（2）求面$PCD$与面$PBF$所成的二面角的正弦值。",
       "options": [],
       "answer": "（1）证明见解析；（2）$\\dfrac{8\\sqrt{65}}{65}$",
-      "analysis": "（1）计算可得$AE=2\\sqrt3,AF=4$，且$\\angle EAF=30^\\circ$，由余弦定理$EF=2$，于是$EF^2+AE^2=AF^2$，故$EF\\perp AD$。翻折后$EF\\perp PE$且$EF\\perp DE$，所以$EF\\perp$平面$PED$，从而$EF\\perp PD$。\\n（2）以$E$为原点建立空间直角坐标系，$EF$方向为$x$轴，$ED$方向为$y$轴，平面$ABCD$法向方向为$z$轴。由$PC=4\\sqrt3$可确定$P$坐标，进而求得平面$PCD$与平面$PBF$的法向量$\\boldsymbol{n}_1,\\boldsymbol{n}_2$，则$\\cos\\theta=\\frac{|\\boldsymbol{n}_1\\cdot\\boldsymbol{n}_2|}{|\\boldsymbol{n}_1||\\boldsymbol{n}_2|}$，$\\sin\\theta=\\sqrt{1-\\cos^2\\theta}=\\frac{8\\sqrt{65}}{65}$。",
+      "analysis": "（1）计算可得$AE=2\\sqrt3,AF=4$，且$\\angle EAF=30^\\circ$，由余弦定理$EF=2$，于是$EF^2+AE^2=AF^2$，故$EF\\perp AD$。翻折后$EF\\perp PE$且$EF\\perp DE$，所以$EF\\perp$平面$PED$，从而$EF\\perp PD$。\n（2）以$E$为原点建立空间直角坐标系，$EF$方向为$x$轴，$ED$方向为$y$轴，平面$ABCD$法向方向为$z$轴。由$PC=4\\sqrt3$可确定$P$坐标，进而求得平面$PCD$与平面$PBF$的法向量$\\boldsymbol{n}_1,\\boldsymbol{n}_2$，则$\\cos\\theta=\\frac{|\\boldsymbol{n}_1\\cdot\\boldsymbol{n}_2|}{|\\boldsymbol{n}_1||\\boldsymbol{n}_2|}$，$\\sin\\theta=\\sqrt{1-\\cos^2\\theta}=\\frac{8\\sqrt{65}}{65}$。",
       "useCount": 0,
       "createdAt": "2026-08-18 00:57:59",
-      "updatedAt": "2026-08-18 01:45:20",
+      "updatedAt": "2026-08-18 13:50:46",
       "images": [
         {
           "position": 0,
@@ -3306,13 +3306,13 @@
         "计数原理与概率统计"
       ],
       "source": "2024新高考II卷",
-      "body": "某投篮比赛分为两个阶段，每个参赛队由两名队员组成。比赛具体规则如下：第一阶段由参赛队中一名队员投篮3次，若3次都未投中，则该队被淘汰，比赛成绩为0分；若至少投中1次，则该队进入第二阶段。第二阶段由该队的另一名队员投篮3次，每次投篮投中得5分，未投中得0分。该队的比赛成绩为第二阶段的得分总和。某参赛队由甲、乙两名队员组成，设甲每次投中的概率为$p$，乙每次投中的概率为$q$，各次投中与否相互独立。\\n（1）若$p=0.4$，$q=0.5$，甲参加第一阶段比赛，求甲、乙所在队的比赛成绩不少于5分的概率；\\n（2）假设$0<p<q$。\\n①为使得甲、乙所在队的比赛成绩为15分的概率最大，应该由谁参加第一阶段比赛？\\n②为使得甲、乙所在队的比赛成绩的数学期望最大，应该由谁参加第一阶段比赛？",
+      "body": "某投篮比赛分为两个阶段，每个参赛队由两名队员组成。比赛具体规则如下：第一阶段由参赛队中一名队员投篮3次，若3次都未投中，则该队被淘汰，比赛成绩为0分；若至少投中1次，则该队进入第二阶段。第二阶段由该队的另一名队员投篮3次，每次投篮投中得5分，未投中得0分。该队的比赛成绩为第二阶段的得分总和。某参赛队由甲、乙两名队员组成，设甲每次投中的概率为$p$，乙每次投中的概率为$q$，各次投中与否相互独立。\n（1）若$p=0.4$，$q=0.5$，甲参加第一阶段比赛，求甲、乙所在队的比赛成绩不少于5分的概率；\n（2）假设$0<p<q$。\n①为使得甲、乙所在队的比赛成绩为15分的概率最大，应该由谁参加第一阶段比赛？\n②为使得甲、乙所在队的比赛成绩的数学期望最大，应该由谁参加第一阶段比赛？",
       "options": [],
       "answer": "（1）0.686；（2）①甲；②甲",
-      "analysis": "（1）甲进入第二阶段的概率为$1-0.6^3=0.784$；乙第二阶段至少投中1次的概率为$1-0.5^3=0.875$。两者独立，故成绩不少于5分的概率为$0.784\\times0.875=0.686$。\\n（2）①成绩为15分即第二阶段3次全中。若甲先，概率为$[1-(1-p)^3]q^3$；若乙先，概率为$[1-(1-q)^3]p^3$。当$0<p<q$时前者更大，故应甲先。\\n②若甲先，期望为$3q[1-(1-p)^3]$；若乙先，期望为$3p[1-(1-q)^3]$。当$0<p<q$时前者更大，故应甲先。",
+      "analysis": "（1）甲进入第二阶段的概率为$1-0.6^3=0.784$；乙第二阶段至少投中1次的概率为$1-0.5^3=0.875$。两者独立，故成绩不少于5分的概率为$0.784\\times0.875=0.686$。\n（2）①成绩为15分即第二阶段3次全中。若甲先，概率为$[1-(1-p)^3]q^3$；若乙先，概率为$[1-(1-q)^3]p^3$。当$0<p<q$时前者更大，故应甲先。\n②若甲先，期望为$3q[1-(1-p)^3]$；若乙先，期望为$3p[1-(1-q)^3]$。当$0<p<q$时前者更大，故应甲先。",
       "useCount": 0,
       "createdAt": "2026-08-18 00:57:59",
-      "updatedAt": "2026-08-18 00:57:59",
+      "updatedAt": "2026-08-18 13:50:46",
       "images": []
     },
     {
@@ -3326,13 +3326,13 @@
         "数列"
       ],
       "source": "2024新高考II卷",
-      "body": "已知双曲线$C:x^2-y^2=m\\ (m>0)$，点$P_1(5,4)$在$C$上，$k$为常数，$0<k<1$。按照如下方式依次构造点$P_n\\ (n=2,3,\\cdots)$：过点$P_{n-1}$作斜率为$k$的直线与$C$的左支点交于点$Q_{n-1}$，令$P_n$为$Q_{n-1}$关于$y$轴的对称点。记$P_n$的坐标为$(x_n,y_n)$。\\n（1）若$k=\\dfrac{1}{2}$，求$x_2,y_2$；\\n（2）证明：数列$\\{x_n-y_n\\}$是公比为$\\dfrac{1+k}{1-k}$的等比数列；\\n（3）设$S_n$为$\\triangle P_nP_{n+1}P_{n+2}$的面积。证明：对于任意正整数$n$，$S_n=S_{n+1}$。",
+      "body": "已知双曲线$C:x^2-y^2=m\\ (m>0)$，点$P_1(5,4)$在$C$上，$k$为常数，$0<k<1$。按照如下方式依次构造点$P_n\\ (n=2,3,\\cdots)$：过点$P_{n-1}$作斜率为$k$的直线与$C$的左支点交于点$Q_{n-1}$，令$P_n$为$Q_{n-1}$关于$y$轴的对称点。记$P_n$的坐标为$(x_n,y_n)$。\n（1）若$k=\\dfrac{1}{2}$，求$x_2,y_2$；\n（2）证明：数列$\\{x_n-y_n\\}$是公比为$\\dfrac{1+k}{1-k}$的等比数列；\n（3）设$S_n$为$\\triangle P_nP_{n+1}P_{n+2}$的面积。证明：对于任意正整数$n$，$S_n=S_{n+1}$。",
       "options": [],
       "answer": "（1）$x_2=3,y_2=0$；（2）证明见解析；（3）证明见解析",
-      "analysis": "（1）$P_1(5,4)$在$C$上，得$m=9$。$k=\\frac12$时过$P_1$的直线为$y-4=\\frac12(x-5)$，与$x^2-y^2=9$联立得$x^2-2x-15=0$，左支点$Q_1(-3,0)$，关于$y$轴对称得$P_2(3,0)$，即$x_2=3,y_2=0$。\\n（2）设$P_{n-1}(x_{n-1},y_{n-1})$，直线$y-y_{n-1}=k(x-x_{n-1})$与$x^2-y^2=m$联立，利用$P_{n-1}$在右支且$Q_{n-1}$在左支，可求得$x_{n-1}-y_{n-1}$与$x_n-y_n$的关系为$x_n-y_n=\\frac{1+k}{1-k}(x_{n-1}-y_{n-1})$，即公比为$\\frac{1+k}{1-k}$的等比数列。\\n（3）由（2）知$\\{x_n-y_n\\}$为等比数列，且$P_{n+1}$为$Q_n$关于$y$轴的对称点，可推出$\\triangle P_nP_{n+1}P_{n+2}$与$\\triangle P_{n+1}P_{n+2}P_{n+3}$等底同高，故$S_n=S_{n+1}$。",
+      "analysis": "（1）$P_1(5,4)$在$C$上，得$m=9$。$k=\\frac12$时过$P_1$的直线为$y-4=\\frac12(x-5)$，与$x^2-y^2=9$联立得$x^2-2x-15=0$，左支点$Q_1(-3,0)$，关于$y$轴对称得$P_2(3,0)$，即$x_2=3,y_2=0$。\n（2）设$P_{n-1}(x_{n-1},y_{n-1})$，直线$y-y_{n-1}=k(x-x_{n-1})$与$x^2-y^2=m$联立，利用$P_{n-1}$在右支且$Q_{n-1}$在左支，可求得$x_{n-1}-y_{n-1}$与$x_n-y_n$的关系为$x_n-y_n=\\frac{1+k}{1-k}(x_{n-1}-y_{n-1})$，即公比为$\\frac{1+k}{1-k}$的等比数列。\n（3）由（2）知$\\{x_n-y_n\\}$为等比数列，且$P_{n+1}$为$Q_n$关于$y$轴的对称点，可推出$\\triangle P_nP_{n+1}P_{n+2}$与$\\triangle P_{n+1}P_{n+2}P_{n+3}$等底同高，故$S_n=S_{n+1}$。",
       "useCount": 0,
       "createdAt": "2026-08-18 00:57:59",
-      "updatedAt": "2026-08-18 00:57:59",
+      "updatedAt": "2026-08-18 13:50:46",
       "images": []
     },
     {
