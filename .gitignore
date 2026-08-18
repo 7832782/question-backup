@@ -1,27 +1,29 @@
-# 数据库文件
+# 数据库文件（体积大，以 data.json 导出备份为准，不入库）
 *.db
 *.db-shm
 *.db-wal
 data_before_clear.db
+data.db.bak*
 
-# 可执行文件
+# 可执行文件（构建产物，源码可重建）
 *.exe
 
-# Python临时文件
+# Python 临时文件
 __pycache__/
 *.pyc
 *.pyo
 
-# 日志
+# 运行日志
 *.log
 
-# Go构建文件
+# 工具目录（体积大，非项目代码）
 src/.tools/
+.tools/
 
-# PDF源文件（太大不备份）
+# PDF 源资料（体积大、公开来源可重新下载）
 gaokaomath-main/
 
-# 其他临时脚本
+# 一次性/历史脚本（按需重现，不入库）
 count_*.py
 check_*.py
 cleanup*.py
@@ -35,8 +37,17 @@ estimate_*.py
 test_*.py
 debug_*.py
 clear_db.py
+fix_*.py
+probe_*.py
+extract_*.py
+import_20*_*.py
+read_20*.py
 
-# 图片文件
+# 渲染中间产物
+src/pdf_pages/
+pdf_pages/
+
+# 图片文件（题目配图已存数据库 images 表，不入库）
 *.png
 *.jpg
 *.jpeg

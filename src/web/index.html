@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>题库系统</title>
+<link rel="stylesheet" href="katex.min.css">
+<style>
+:root {
+  --bg: #f6f7f9;
+  --card: #ffffff;
+  --border: #e3e6ea;
+  --text: #1f2937;
+  --text-2: #6b7280;
+  --accent: #2563eb;
+  --accent-weak: #eff6ff;
+  --danger: #dc2626;
+  --ok: #059669;
+  --radius: 10px;
+  --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Segoe UI", "Microsoft YaHei", system-ui, sans-serif;
+  background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.6;
+}
+button { font-family: inherit; cursor: pointer; }
+input, select, textarea { font-family: inherit; font-size: 14px; }
+
+/* ---------- 顶栏 ---------- */
+.topbar {
+  display: flex; align-items: center; gap: 8px;
+  padding: 0 20px; height: 52px;
+  background: var(--card); border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 50;
+}
+.topbar .logo { font-size: 17px; font-weight: 700; margin-right: 16px; letter-spacing: .5px; }
+.topbar .logo span { color: var(--accent); }
+.nav-btn {
+  border: none; background: none; padding: 8px 14px; border-radius: 8px;
+  font-size: 14px; color: var(--text-2); transition: all .15s;
+}
+.nav-btn:hover { background: #f0f2f5; color: var(--text); }
+.nav-btn.active { background: var(--accent-weak); color: var(--accent); font-weight: 600; }
+.topbar .spacer { flex: 1; }
+.topbar .stat { color: var(--text-2); font-size: 13px; }
+
+/* ---------- 主区域 ---------- */
+main { max-width: 1080px; margin: 0 auto; padding: 18px 20px 60px; }
+.view { display: none; }
+.view.active { display: block; }
+
+/* ---------- 筛选条 ---------- */
+.filter-bar {
+  display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 12px 14px; margin-bottom: 16px; box-shadow: var(--shadow);
+}
+.filter-bar select, .filter-bar input[type=text] {
+  border: 1px solid var(--border); border-radius: 8px; padding: 7px 10px;
+  background: #fff; color: var(--text); outline: none; transition: border .15s;
+  max-width: 170px;
+}
+/* 难度区间两个框：固定宽度，避免原生 select 在不同浏览器里被内容/字体撑宽 */
+#fDiffMin { width: 62px; }
+#fDiffMax { width: 62px; }
+.filter-label { color: var(--text-2); font-size: 13px; white-space: nowrap; }
+.filter-sep { color: var(--text-2); margin: 0 1px; }
+.filter-bar select:focus, .filter-bar input[type=text]:focus { border-color: var(--accent); }
+.filter-bar label { display: flex; align-items: center; gap: 5px; color: var(--text-2); font-size: 13px; white-space: nowrap; }
+.filter-bar label input[type=checkbox] { accent-color: var(--accent); width: 15px; height: 15px; }
+.filter-bar .grow { flex: 1; min-width: 120px; }
+.btn {
+  border: 1px solid var(--border); background: #fff; color: var(--text);
+  padding: 7px 14px; border-radius: 8px; font-size: 13px; transition: all .15s;
+  display: inline-flex; align-items: center; gap: 5px;
+}
+.btn:hover { border-color: #c9ced6; background: #fafbfc; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn.primary:hover { background: #1d4ed8; }
+.btn.danger { color: var(--danger); border-color: #f3c4c4; }
+.btn.danger:hover { background: #fef2f2; }
+.btn.small { padding: 4px 10px; font-size: 12px; }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+
+/* ---------- 题目卡片 ---------- */
+.q-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 14px 16px; margin-bottom: 10px; box-shadow: var(--shadow);
+  transition: border-color .15s, box-shadow .15s, background .15s;
+  cursor: pointer;
+}
+.q-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 2px 10px rgba(37,99,235,.12);
+  background: #fdfdfe;
+}
+.q-card:active { box-shadow: 0 1px 4px rgba(37,99,235,.15); }
+.q-card.selected { border-color: var(--accent); background: var(--accent-weak); }
+.q-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+.q-check { accent-color: var(--accent); width: 20px; height: 20px; cursor: pointer; }
+/* 勾选热区：放大点击范围，点这里只勾选不跳详情 */
+.q-check-wrap {
+  display: inline-flex; align-items: center;
+  padding: 8px 10px; margin: -8px -10px;
+  border-radius: 8px; cursor: pointer;
+}
+.q-check-wrap:hover { background: rgba(37,99,235,.08); }
+.q-code { font-weight: 700; font-size: 13px; color: var(--text-2); font-variant-numeric: tabular-nums; }
+.badge {
+  font-size: 12px; padding: 1px 9px; border-radius: 999px; font-weight: 500;
+  background: #f0f2f5; color: #374151; border: 1px solid var(--border);
+}
+.badge.single { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+.badge.multi  { background: #fdf4ff; color: #a21caf; border-color: #f5d0fe; }
+.badge.fill   { background: #ecfdf5; color: #047857; border-color: #a7f3d0; }
+.badge.essay  { background: #fffbeb; color: #b45309; border-color: #fde68a; }
+.badge.grade  { background: #f5f3ff; color: #6d28d9; border-color: #ddd6fe; }
+.stars { color: #f59e0b; font-size: 13px; letter-spacing: 1px; }
+.tag {
+  font-size: 12px; background: #f8fafc; border: 1px solid var(--border);
+  border-radius: 6px; padding: 0 8px; color: var(--text-2);
+}
+.q-source { font-size: 12px; color: var(--text-2); margin-left: auto; }
+.q-body { font-size: 14px; }
+.q-body img { max-width: 100%; border-radius: 6px; margin: 4px 0; }
+.q-opts { margin: 6px 0 2px 4px; padding-left: 10px; border-left: 2px solid #eef0f3; color: #374151; font-size: 13.5px; }
+.q-opts > div { padding: 1px 0; }
+.q-meta { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 10px; }
+.q-actions { margin-left: auto; display: flex; gap: 6px; }
+.q-answer { margin-top: 8px; padding: 8px 12px; background: #f8fafc; border-radius: 8px; font-size: 13px; color: #374151; }
+.q-answer b { color: var(--ok); }
+.q-empty { text-align: center; color: var(--text-2); padding: 50px 0; }
+.q-empty .big { font-size: 40px; margin-bottom: 10px; }
+.pager { display: flex; justify-content: center; gap: 8px; margin-top: 16px; align-items: center; color: var(--text-2); }
+
+/* ---------- 标签块输入 ---------- */
+.tag-input {
+  display: flex; flex-wrap: wrap; gap: 6px; align-items: center;
+  border: 1px solid var(--border); border-radius: 8px; padding: 6px 8px;
+  background: #fff; cursor: text; transition: border .15s; min-height: 38px;
+}
+.tag-input:focus-within { border-color: var(--accent); }
+.tag-input input {
+  border: none; outline: none; flex: 1; min-width: 120px; padding: 2px 0; font-size: 14px;
+}
+.tag-chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: var(--accent-weak); color: #1d4ed8; border: 1px solid #bfdbfe;
+  border-radius: 999px; padding: 2px 6px 2px 10px; font-size: 13px;
+}
+.tag-chip .x {
+  border: none; background: none; color: #93c5fd; font-size: 13px; line-height: 1;
+  padding: 0 3px; cursor: pointer; border-radius: 50%;
+}
+.tag-chip .x:hover { color: var(--danger); background: #fee2e2; }
+
+/* ---------- 组卷视图 ---------- */
+.paper-head {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 14px 16px; margin-bottom: 14px; box-shadow: var(--shadow);
+  display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+}
+.paper-head input[type=text] {
+  border: 1px solid var(--border); border-radius: 8px; padding: 7px 10px; outline: none;
+}
+.paper-head input[type=text]:focus { border-color: var(--accent); }
+.paper-head .name-input { flex: 1; min-width: 200px; font-size: 15px; font-weight: 600; }
+.pi-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 14px 16px; margin-bottom: 10px; box-shadow: var(--shadow);
+  transition: border-color .15s, box-shadow .15s, background .15s;
+}
+.pi-grip { color: #c8cdd4; cursor: grab; font-size: 15px; user-select: none; line-height: 1; align-self: center; }
+.pi-grip:hover { color: var(--text-2); }
+.pi-card.dragging { opacity: .45; }
+.pi-card.drag-over { outline: 1.5px dashed var(--accent); outline-offset: 3px; border-radius: 6px; }
+.pi-num { font-weight: 700; color: var(--accent); font-size: 14px; min-width: 26px; text-align: center; }
+.pi-score { display: flex; align-items: center; gap: 5px; color: var(--text-2); font-size: 13px; }
+.pi-score input {
+  width: 62px; border: 1px solid var(--border); border-radius: 6px; padding: 4px 6px; text-align: right;
+}
+.pi-ops { display: flex; gap: 4px; }
+
+/* ---------- 弹窗 ---------- */
+.overlay {
+  position: fixed; inset: 0; background: rgba(15,23,42,.45);
+  display: none; align-items: center; justify-content: center; z-index: 100; padding: 20px;
+}
+.overlay.open { display: flex; }
+.modal {
+  background: var(--card); border-radius: 14px; box-shadow: 0 20px 50px rgba(0,0,0,.2);
+  width: 100%; max-width: 860px; max-height: 92vh; display: flex; flex-direction: column;
+}
+.modal.sm { max-width: 460px; }
+.modal.wide { max-width: 1000px; }
+.modal-head {
+  display: flex; align-items: center; gap: 10px; padding: 14px 20px;
+  border-bottom: 1px solid var(--border); font-size: 16px; font-weight: 600;
+}
+.modal-head .x { margin-left: auto; border: none; background: none; font-size: 20px; color: var(--text-2); padding: 0 6px; }
+.modal-head .x:hover { color: var(--text); }
+.modal-body { padding: 18px 20px; overflow-y: auto; flex: 1; }
+.modal-foot { padding: 12px 20px; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; gap: 10px; }
+
+/* ---------- 表单 ---------- */
+.f-row { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 14px; }
+.f-field { display: flex; flex-direction: column; gap: 5px; }
+.f-field label { font-size: 13px; color: var(--text-2); font-weight: 500; }
+.f-field input[type=text], .f-field select, .f-field textarea {
+  border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; outline: none;
+  transition: border .15s; background: #fff;
+}
+.f-field input[type=text]:focus, .f-field select:focus, .f-field textarea:focus { border-color: var(--accent); }
+.f-field textarea { resize: vertical; line-height: 1.6; }
+.f-field .hint { font-size: 12px; color: var(--text-2); }
+.f-toolbar { display: flex; gap: 6px; margin-bottom: 6px; flex-wrap: wrap; align-items: center; }
+.f-toolbar .t-label { font-size: 13px; font-weight: 600; color: var(--text); margin-right: 6px; }
+.star-pick { display: flex; gap: 2px; align-items: center; }
+.sp-star {
+  font-size: 24px; line-height: 1; color: #d1d5db; cursor: pointer;
+  transition: color .1s, transform .1s; user-select: none; padding: 0 1px; background: none; border: none;
+}
+.sp-star.on { color: #f59e0b; }
+.sp-star:hover { transform: scale(1.2); }
+.stars .dim { color: #e5e7eb; }
+
+/* 图片上传 */
+.img-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; margin-top: 8px; }
+.img-item {
+  border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: #fff;
+  display: flex; flex-direction: column;
+}
+.img-item img { width: 100%; height: 110px; object-fit: contain; background: #fafafa; }
+.img-item .im-ops { padding: 6px 8px; display: flex; gap: 6px; align-items: center; }
+.img-item .im-ops select { border: 1px solid var(--border); border-radius: 6px; padding: 2px 4px; font-size: 12px; }
+.img-item .im-ops .del { margin-left: auto; border: none; background: none; color: var(--danger); font-size: 15px; }
+.img-item .im-tag { padding: 2px 8px; font-size: 11px; color: var(--accent); background: var(--accent-weak); font-weight: 600; }
+.upload-zone {
+  border: 2px dashed var(--border); border-radius: 10px; padding: 18px; text-align: center;
+  color: var(--text-2); cursor: pointer; transition: all .15s; margin-top: 8px;
+}
+.upload-zone:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-weak); }
+
+/* 表格编辑 */
+.tbl-item { border: 1px solid var(--border); border-radius: 8px; margin-top: 8px; overflow: hidden; }
+.tbl-item .tbl-head { display: flex; align-items: center; gap: 8px; padding: 6px 10px; background: #f8fafc; font-size: 13px; }
+.tbl-item .tbl-head .del { margin-left: auto; border: none; background: none; color: var(--danger); font-size: 15px; }
+.tbl-item textarea { width: 100%; border: none; padding: 10px; font-size: 13px; resize: vertical; outline: none; font-family: Consolas, monospace; }
+.tbl-preview { padding: 10px; border-top: 1px solid var(--border); }
+
+/* 选项 */
+.opt-row { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; }
+.opt-grip { color: #c8cdd4; cursor: grab; font-size: 14px; user-select: none; padding: 0 2px; line-height: 1; }
+.opt-grip:hover { color: var(--text-2); }
+.opt-row.dragging { opacity: .45; }
+.opt-row.drag-over { outline: 1.5px dashed var(--accent); outline-offset: 3px; border-radius: 6px; }
+.opt-row .opt-letter { font-weight: 700; color: var(--accent); min-width: 24px; }
+.opt-row input { flex: 1; border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; outline: none; }
+.opt-row input:focus { border-color: var(--accent); }
+.opt-row .del { border: none; background: none; color: var(--danger); font-size: 15px; }
+
+/* 答案区 */
+.ans-single { display: flex; gap: 6px; flex-wrap: wrap; }
+.ans-single button {
+  border: 1px solid var(--border); background: #fff; border-radius: 8px; padding: 7px 16px;
+  font-size: 14px; font-weight: 600; transition: all .15s;
+}
+.ans-single button.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+.ans-multi { display: flex; gap: 6px; flex-wrap: wrap; }
+.ans-multi button {
+  border: 1px solid var(--border); background: #fff; border-radius: 8px; padding: 7px 16px;
+  font-size: 14px; font-weight: 600; transition: all .15s;
+}
+.ans-multi button.on { background: var(--ok); border-color: var(--ok); color: #fff; }
+
+/* ---------- markdown 渲染 ---------- */
+.md table { border-collapse: collapse; margin: 8px 0; font-size: 13px; }
+.md th, .md td { border: 1px solid var(--border); padding: 5px 10px; }
+.md th { background: #f8fafc; }
+.md code { background: #f3f4f6; border-radius: 4px; padding: 1px 5px; font-size: 13px; font-family: Consolas, monospace; }
+.md .math { font-family: "Cambria Math", "Times New Roman", serif; font-style: italic; color: #0f172a; }
+.md .math-err { color: var(--danger); }
+.md .katex { font-size: 1.05em; }
+.q-opts .opt-letter { color: var(--accent); font-weight: 700; margin-right: 4px; }
+.md h1, .md h2, .md h3, .md h4, .md h5, .md h6 { font-size: 15px; margin: 6px 0; }
+.md ul, .md ol { padding-left: 22px; margin: 4px 0; }
+.md blockquote { border-left: 3px solid var(--border); margin: 6px 0; padding: 2px 10px; color: var(--text-2); }
+
+/* ---------- 卷子列表 ---------- */
+.paper-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 14px 16px; margin-bottom: 10px; box-shadow: var(--shadow);
+  display: flex; align-items: center; gap: 14px;
+}
+.paper-card .pc-name { font-weight: 600; font-size: 15px; }
+.paper-card .pc-meta { color: var(--text-2); font-size: 12px; margin-top: 2px; }
+.paper-card .pc-ops { margin-left: auto; display: flex; gap: 6px; }
+
+/* ---------- 导入导出 ---------- */
+.io-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 20px; margin-bottom: 14px; box-shadow: var(--shadow);
+}
+.io-card h3 { font-size: 15px; margin-bottom: 6px; }
+.io-card p { color: var(--text-2); font-size: 13px; margin-bottom: 12px; }
+.io-card .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+
+.radio-group { display: flex; gap: 14px; align-items: center; padding-top: 4px; flex-wrap: wrap; }
+.radio-group label { display: flex; align-items: center; gap: 5px; font-size: 13px; cursor: pointer; white-space: nowrap; }
+.radio-group input[type=radio], .radio-group input[type=checkbox] { accent-color: var(--accent); width: 14px; height: 14px; }
+#xAnswerField, #xAnalysisField { transition: opacity .15s; }
+#xAnswerField.disabled-field, #xAnalysisField.disabled-field { opacity: .4; }
+
+/* 预览 */
+#exportPreview { width: 100%; height: 46vh; border: 1px solid var(--border); border-radius: 8px; padding: 12px; font-family: Consolas, "Microsoft YaHei", monospace; font-size: 13px; resize: vertical; background: #fafbfc; }
+
+.toast {
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+  background: #111827; color: #fff; padding: 10px 20px; border-radius: 10px;
+  font-size: 13px; z-index: 200; opacity: 0; transition: opacity .25s; pointer-events: none;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+.toast.show { opacity: 1; }
+.toast.err { background: var(--danger); }
+
+/* ---------- 标签管理 ---------- */
+.tag-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 12px 16px; margin-bottom: 8px; box-shadow: var(--shadow);
+  display: flex; gap: 10px; align-items: center;
+}
+.tag-card .tag-name { font-weight: 600; font-size: 15px; min-width: 120px; }
+.tag-card .tag-count { color: var(--text-2); font-size: 13px; }
+
+/* ---------- 详情页 ---------- */
+.detail-head { display: flex; gap: 8px; align-items: center; margin-bottom: 14px; flex-wrap: wrap; }
+.detail-title { font-size: 16px; font-weight: 600; }
+.sim-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 12px 16px; margin-bottom: 8px; cursor: pointer; transition: border-color .15s, box-shadow .15s;
+}
+.sim-card:hover { border-color: var(--accent); box-shadow: 0 2px 8px rgba(37,99,235,.12); }
+.sim-score { font-size: 12px; color: var(--ok); font-weight: 600; white-space: nowrap; margin-left: auto; }
+
+/* ---------- 收藏夹 ---------- */
+.fav-bar {
+  display: flex; gap: 10px; align-items: center;
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 12px 14px; margin-bottom: 14px; box-shadow: var(--shadow);
+}
+.fav-chip {
+  border: 1px solid var(--border); background: #fff; border-radius: 999px;
+  padding: 5px 14px; font-size: 13px; cursor: pointer; transition: all .15s; display: inline-flex; gap: 6px; align-items: center;
+}
+.fav-chip:hover { border-color: var(--accent); }
+.fav-chip.active { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+.fav-chip .cnt { font-size: 11px; opacity: .75; }
+.fav-pick-item {
+  display: flex; gap: 8px; align-items: center; padding: 8px 10px;
+  border: 1px solid var(--border); border-radius: 8px; margin-bottom: 6px; cursor: pointer;
+}
+.fav-pick-item:hover { border-color: var(--accent); }
+.fav-pick-item input[type=radio] { accent-color: var(--accent); }
+.fav-pick-item .in-fav { color: var(--ok); font-size: 12px; margin-left: auto; }
+
+@media (max-width: 720px) {
+  .filter-bar { flex-direction: column; align-items: stretch; }
+  .filter-bar select, .filter-bar input { max-width: none; }
+  .q-actions { margin-left: 0; width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="logo">题库<span>系统</span></div>
+  <button class="nav-btn active" data-view="questions">题库</button>
+  <button class="nav-btn" data-view="paper">组卷</button>
+  <button class="nav-btn" data-view="papers">卷子</button>
+  <button class="nav-btn" data-view="favs">收藏夹</button>
+  <button class="nav-btn" data-view="tags">标签</button>
+  <button class="nav-btn" data-view="io">导入导出</button>
+  <div class="spacer"></div>
+  <div class="stat" id="topStat"></div>
+</div>
+
+<main>
+  <!-- ===== 题库视图 ===== -->
+  <div class="view active" id="view-questions">
+    <div class="filter-bar">
+      <select id="fSubject"><option value="">科目：全部</option></select>
+      <select id="fQtype">
+        <option value="">题型：全部</option>
+        <option value="single">单选</option>
+        <option value="multi">多选</option>
+        <option value="fill">填空</option>
+        <option value="essay">解答</option>
+      </select>
+      <select id="fGrade">
+        <option value="">年级：全部</option>
+        <option value="小学">小学</option>
+        <option value="初中">初中</option>
+        <option value="高中">高中</option>
+        <option value="大学">大学</option>
+      </select>
+      <span class="filter-label">难度：</span>
+      <select id="fDiffMin">
+        <option value="1" selected>1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+      </select>
+      <span class="filter-sep">-</span>
+      <select id="fDiffMax">
+        <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5" selected>5</option>
+      </select>
+      <input type="text" id="fTag" list="tagList" placeholder="按标签筛选，如：函数" style="max-width:130px">
+      <datalist id="tagList"></datalist>
+      <input type="text" id="fSource" placeholder="来源" style="max-width:140px">
+      <input type="text" id="fSearch" class="grow" placeholder="搜索题干 / 答案 / 解析…">
+      <label><input type="checkbox" id="fUnused"> 未使用过</label>
+      <button class="btn" id="fClear">清空</button>
+      <button class="btn primary" id="btnNewQ">+ 新建题目</button>
+    </div>
+    <div class="filter-bar" style="padding:8px 14px; box-shadow:none;">
+      <label><input type="checkbox" id="checkAll" class="q-check"> 全选本页</label>
+      <span style="color:var(--text-2);font-size:13px" id="selInfo"></span>
+      <div style="flex:1"></div>
+      <button class="btn" id="btnBatchFav">批量收藏</button>
+      <button class="btn" id="btnAddToPaper">加入卷子</button>
+    </div>
+    <div id="qList"></div>
+    <div class="pager" id="pager"></div>
+  </div>
+
+  <!-- ===== 组卷视图 ===== -->
+  <div class="view" id="view-paper">
+    <div class="paper-head">
+      <input type="text" class="name-input" id="paperName" placeholder="卷子名称，如：导数专项练习">
+      <div style="flex:1"></div>
+      <button class="btn" id="btnSortByType" title="按 单选→多选→填空→解答 排序">按题型排序</button>
+      <button class="btn" id="btnAddFromBank">+ 从题库添加</button>
+      <button class="btn" id="btnExport">导出 md</button>
+      <button class="btn primary" id="btnSavePaper">保存卷子</button>
+    </div>
+    <div id="paperItems"></div>
+    <div class="q-empty" id="paperEmpty" style="display:none">
+      <div class="big">📄</div>
+      <div>卷子是空的，点「从题库添加」选题，或先到题库勾选题目再「加入卷子」。</div>
+    </div>
+  </div>
+
+  <!-- ===== 卷子列表视图 ===== -->
+  <div class="view" id="view-papers">
+    <div id="paperList"></div>
+  </div>
+
+  <!-- ===== 题目详情视图 ===== -->
+  <div class="view" id="view-detail">
+    <div class="detail-head">
+      <button class="btn" id="btnDetailBack">← 返回</button>
+      <span class="detail-title" id="detailTitle"></span>
+      <div style="flex:1"></div>
+      <button class="btn" id="btnDetailPrev" title="上一题">◀ 上一题</button>
+      <button class="btn" id="btnDetailNext" title="下一题">下一题 ▶</button>
+      <button class="btn" id="btnDetailFav" title="收藏">☆ 收藏</button>
+      <button class="btn" id="btnDetailEdit">编辑</button>
+      <button class="btn danger" id="btnDetailDel">删除</button>
+    </div>
+    <div class="q-card" style="padding:20px 24px">
+      <div class="q-head" style="margin-bottom:10px">
+        <span class="q-code" id="dCode"></span>
+        <span class="badge" id="dQtype"></span>
+        <span class="badge grade" id="dGrade"></span>
+        <span id="dStars"></span>
+        <span id="dTags"></span>
+        <span class="q-source" id="dSource"></span>
+      </div>
+      <div class="q-body md" id="dBody" style="font-size:15px"></div>
+      <div id="dOptions"></div>
+      <div class="q-answer" id="dAnswer"></div>
+      <div class="q-answer" id="dAnalysis" style="background:var(--accent-weak)"></div>
+      <div class="q-meta" style="margin-top:16px;font-size:12px;color:var(--text-2)">
+        <span id="dMeta"></span>
+      </div>
+    </div>
+    <div style="margin-top:18px">
+      <div style="font-size:15px;font-weight:600;margin-bottom:10px">相似题 <span style="font-weight:400;font-size:12px;color:var(--text-2)" id="simInfo"></span></div>
+      <div id="similarList"></div>
+    </div>
+  </div>
+
+  <!-- ===== 收藏夹视图 ===== -->
+  <div class="view" id="view-favs">
+    <div class="fav-bar">
+      <span style="font-size:13px;color:var(--text-2);white-space:nowrap">收藏夹：</span>
+      <div id="favList" style="display:flex;gap:8px;flex-wrap:wrap;flex:1"></div>
+      <button class="btn" id="btnNewFav">+ 新建收藏夹</button>
+    </div>
+    <div id="favContent" style="display:none">
+      <div class="filter-bar" style="padding:8px 14px;box-shadow:none">
+        <input type="text" id="favNameInput" placeholder="收藏夹名称" style="flex:1;max-width:260px;border:1px solid var(--border);border-radius:8px;padding:7px 10px">
+        <button class="btn small" id="btnRenameFav">保存名称</button>
+        <button class="btn small danger" id="btnDeleteFav">删除夹子</button>
+        <div style="flex:1"></div>
+        <label style="display:flex;align-items:center;gap:5px;color:var(--text-2);font-size:13px"><input type="checkbox" id="favCheckAll" class="q-check"> 全选</label>
+        <span style="color:var(--text-2);font-size:13px" id="favSelInfo"></span>
+        <button class="btn" id="btnFavAddToPaper">加入卷子</button>
+        <button class="btn" id="btnFavExport">导出</button>
+        <button class="btn danger" id="btnFavRemove">移除选中</button>
+      </div>
+      <div id="favItems"></div>
+    </div>
+    <div class="q-empty" id="favEmpty">
+      <div class="big">⭐</div>
+      <div>还没有收藏夹。看到好题点卡片上的 ☆，攒一个知识点专题。</div>
+    </div>
+  </div>
+
+  <!-- ===== 标签管理视图 ===== -->
+  <div class="view" id="view-tags">
+    <div class="filter-bar">
+      <select id="tgSubject"></select>
+      <select id="tgGrade">
+        <option value="初中">初中</option>
+        <option value="高中">高中</option>
+      </select>
+      <span style="color:var(--text-2);font-size:13px" id="tgInfo"></span>
+      <span class="hint" style="font-size:12px;color:var(--text-2)">标签按科目和年级独立管理，同名标签互不干扰</span>
+      <div style="flex:1"></div>
+      <button class="btn" id="tgRefresh">刷新</button>
+    </div>
+    <div id="tgList"></div>
+  </div>
+
+  <!-- ===== 导入导出视图 ===== -->
+  <div class="view" id="view-io">
+    <div class="io-card">
+      <h3>导出题库快照</h3>
+      <p>把全部题目（含图片、表格）导出为一个 JSON 文件。备份或迁移到其他电脑时使用。</p>
+      <div class="row"><button class="btn primary" id="btnSnapshotOut">下载快照 JSON</button></div>
+    </div>
+    <div class="io-card">
+      <h3>导入题库快照</h3>
+      <p>从 JSON 快照导入题目。按题干自动去重：重复的题目默认跳过，勾选「覆盖」则用文件内容更新已有题目。</p>
+      <div class="row">
+        <input type="file" id="importFile" accept=".json" style="display:none">
+        <button class="btn" id="btnPickFile">选择文件</button>
+        <span id="importFileName" style="color:var(--text-2);font-size:13px"></span>
+        <label style="display:flex;align-items:center;gap:5px;color:var(--text-2);font-size:13px">
+          <input type="checkbox" id="importOverwrite" style="accent-color:var(--accent)"> 覆盖重复题目
+        </label>
+        <button class="btn primary" id="btnImport">导入</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ===== 题目编辑弹窗 ===== -->
+<div class="overlay" id="ovEditor">
+  <div class="modal wide">
+    <div class="modal-head">
+      <span id="editorTitle">新建题目</span>
+      <button class="x" onclick="closeEditor()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="f-row">
+        <div class="f-field" style="flex:1">
+          <label>科目</label>
+          <input type="text" id="eSubject" list="subjectList" placeholder="如：数学">
+        </div>
+        <div class="f-field">
+          <label>年级</label>
+          <select id="eGrade">
+            <option value="小学">小学</option>
+            <option value="初中">初中</option>
+            <option value="高中" selected>高中</option>
+            <option value="大学">大学</option>
+          </select>
+        </div>
+        <div class="f-field">
+          <label>题型</label>
+          <select id="eQtype">
+            <option value="single">单选题</option>
+            <option value="multi">多选题</option>
+            <option value="fill">填空题</option>
+            <option value="essay">解答题</option>
+          </select>
+        </div>
+        <div class="f-field">
+          <label>难度</label>
+          <div class="star-pick" id="eStars">
+            <button type="button" class="sp-star" data-v="1">★</button>
+            <button type="button" class="sp-star" data-v="2">★</button>
+            <button type="button" class="sp-star" data-v="3">★</button>
+            <button type="button" class="sp-star" data-v="4">★</button>
+            <button type="button" class="sp-star" data-v="5">★</button>
+          </div>
+        </div>
+        <div class="f-field" style="flex:1">
+          <label>知识点标签（输入后按回车添加）</label>
+          <div class="tag-input" id="eTags">
+            <input type="text" list="tagList" placeholder="输入标签后按回车…" autocomplete="off">
+          </div>
+        </div>
+        <div class="f-field">
+          <label>来源</label>
+          <input type="text" id="eSource" placeholder="如：2024新高考I卷">
+        </div>
+      </div>
+
+      <div class="f-field" style="margin-bottom:14px">
+        <div class="f-toolbar">
+          <span class="t-label">题干</span>
+          <button class="btn small" id="btnInsFig">图片位置</button>
+          <button class="btn small" id="btnInsTbl">插入 {{表N}}</button>
+          <span class="hint">支持 Markdown、LaTeX 公式（$...$）；图片自动跟在题干后</span>
+        </div>
+        <textarea id="eBody" rows="4" placeholder="题干内容…"></textarea>
+      </div>
+
+      <div class="f-field" style="margin-bottom:14px">
+        <label>配图（上传后自动压缩，显示在题干下方，无需占位符）</label>
+        <div class="img-grid" id="eImages"></div>
+        <div class="upload-zone" id="eUploadZone">＋ 点击上传图片（可多选）</div>
+        <input type="file" id="eUploadInput" accept="image/*" multiple style="display:none">
+      </div>
+
+      <div class="f-field" style="margin-bottom:14px">
+        <label>表格（Markdown 语法）</label>
+        <div id="eTables"></div>
+        <button class="btn small" id="btnAddTable">＋ 添加表格</button>
+      </div>
+
+      <div class="f-field" id="optionsField" style="margin-bottom:14px">
+        <div class="f-toolbar">
+          <span class="t-label">选项</span>
+          <button class="btn small" id="btnAddOpt">＋ 添加选项</button>
+        </div>
+        <div id="eOptions"></div>
+      </div>
+
+      <div class="f-field" style="margin-bottom:14px">
+        <label>答案</label>
+        <div id="eAnswerArea"></div>
+      </div>
+
+      <div class="f-field">
+        <label>解析</label>
+        <textarea id="eAnalysis" rows="3" placeholder="解析内容，可含 {{图N}}/{{表N}} 占位符…"></textarea>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" onclick="closeEditor()">取消</button>
+      <button class="btn primary" id="btnSaveQ">保存题目</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 从题库添加弹窗 ===== -->
+<div class="overlay" id="ovPick">
+  <div class="modal">
+    <div class="modal-head">
+      <span>从题库选择题目</span>
+      <button class="x" onclick="closePick()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="filter-bar" style="margin-bottom:10px;box-shadow:none;padding:8px">
+        <input type="text" id="pSearch" placeholder="搜索题干…" style="flex:1;min-width:120px">
+        <select id="pQtype" style="max-width:120px">
+          <option value="">全部题型</option>
+          <option value="single">单选</option>
+          <option value="multi">多选</option>
+          <option value="fill">填空</option>
+          <option value="essay">解答</option>
+        </select>
+        <select id="pGrade" style="max-width:100px">
+          <option value="">全部年级</option>
+          <option value="小学">小学</option>
+          <option value="初中">初中</option>
+          <option value="高中">高中</option>
+          <option value="大学">大学</option>
+        </select>
+        <select id="pSubject" style="max-width:120px"><option value="">全部科目</option></select>
+      </div>
+      <div id="pickList" style="max-height:46vh;overflow-y:auto"></div>
+    </div>
+    <div class="modal-foot">
+      <span id="pickInfo" style="margin-right:auto;color:var(--text-2);font-size:13px"></span>
+      <button class="btn" onclick="closePick()">取消</button>
+      <button class="btn primary" id="btnPickConfirm">加入选中题目</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 导出弹窗 ===== -->
+<div class="overlay" id="ovExport">
+  <div class="modal wide">
+    <div class="modal-head">
+      <span>导出 Markdown</span>
+      <button class="x" onclick="closeExport()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="f-row" style="margin-bottom:12px">
+        <div class="f-field">
+          <label>导出内容</label>
+          <div class="radio-group">
+            <label><input type="checkbox" id="xIncludeQ" checked> 题目</label>
+            <label><input type="checkbox" id="xIncludeA"> 答案</label>
+            <label><input type="checkbox" id="xIncludeN"> 解析</label>
+          </div>
+        </div>
+        <div class="f-field" id="xAnswerField">
+          <label>答案位置</label>
+          <select id="xAnswerPos" disabled>
+            <option value="after">每题后</option>
+            <option value="end" selected>卷尾集中</option>
+          </select>
+        </div>
+        <div class="f-field" id="xAnalysisField">
+          <label>解析位置</label>
+          <select id="xAnalysisPos" disabled>
+            <option value="after">每题后</option>
+            <option value="end" selected>卷尾集中</option>
+          </select>
+        </div>
+        <div class="f-field" style="flex:1;justify-content:flex-end">
+          <span class="hint" id="xHint">默认只导出题目（学生卷）</span>
+        </div>
+      </div>
+      <textarea id="exportPreview" readonly spellcheck="false"></textarea>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" onclick="closeExport()">关闭</button>
+      <button class="btn primary" id="btnDownload">下载 .md</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 收藏夹选择弹窗 ===== -->
+<div class="overlay" id="ovFavPick">
+  <div class="modal sm">
+    <div class="modal-head">
+      <span id="favPickTitle">管理收藏</span>
+      <button class="x" onclick="closeFavPick()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div id="favPickHint" style="display:none;color:var(--text-2);font-size:13px;margin-bottom:8px"></div>
+      <div id="favPickList"></div>
+      <input type="text" id="favPickNew" placeholder="输入名称按回车新建收藏夹…" style="width:100%;margin-top:12px;border:1px solid var(--border);border-radius:8px;padding:8px 10px;outline:none">
+    </div>
+    <div class="modal-foot">
+      <button class="btn" onclick="closeFavPick()">取消</button>
+      <button class="btn primary" id="btnFavPickGo">保存</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="marked.min.js"></script>
+<script src="katex.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
