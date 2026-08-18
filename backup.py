@@ -12,17 +12,18 @@ REPO_DIR = r"D:\desktop\题库系统"
 
 
 def _load_token():
-    """优先取环境变量 GITHUB_TOKEN，其次读 .backup_config"""
+    """优先取环境变量 GITHUB_TOKEN，其次读 .env，最后读 .backup_config"""
     tok = os.environ.get("GITHUB_TOKEN")
     if tok:
         return tok.strip()
-    cfg = os.path.join(REPO_DIR, ".backup_config")
-    if os.path.exists(cfg):
-        with open(cfg, encoding="utf-8", errors="ignore") as f:
-            for line in f:
-                line = line.strip()
-                if line.startswith("GITHUB_TOKEN="):
-                    return line.split("=", 1)[1].strip()
+    for fname in (" .env", ".backup_config"):
+        cfg = os.path.join(REPO_DIR, fname.strip())
+        if os.path.exists(cfg):
+            with open(cfg, encoding="utf-8", errors="ignore") as f:
+                for line in f:
+                    line = line.strip()
+                    if line.startswith("GITHUB_TOKEN="):
+                        return line.split("=", 1)[1].strip()
     return None
 
 

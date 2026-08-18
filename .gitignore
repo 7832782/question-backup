@@ -53,10 +53,13 @@ pdf_pages/
 *.jpeg
 *.gif
 
+# 部署配置（含密钥，不入库）
+.env
+.backup_config
+
 # 其他
 *.swp
 *.swo
 *~
 .vscode/
 .idea/
-.backup_config
