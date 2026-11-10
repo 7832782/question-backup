@@ -306,8 +306,8 @@ function renderPager() {
   box.innerHTML = '<button class="btn small" id="pgPrev"' + (f.page <= 1 ? ' disabled' : '') + '>上一页</button>' +
     '<span>' + f.page + ' / ' + pages + '</span>' +
     '<button class="btn small" id="pgNext"' + (f.page >= pages ? ' disabled' : '') + '>下一页</button>';
-  $('pgPrev').onclick = () => { f.page--; loadQuestions(); };
-  $('pgNext').onclick = () => { f.page++; loadQuestions(); };
+  $('pgPrev').onclick = () => { f.page--; window.scrollTo({ top: 0, behavior: 'auto' }); loadQuestions(); };
+  $('pgNext').onclick = () => { f.page++; window.scrollTo({ top: 0, behavior: 'auto' }); loadQuestions(); };
 }
 
 /* 筛选事件 */
@@ -1790,6 +1790,20 @@ function bindTags() {
   $('tgRefresh').onclick = loadTags;
 }
 
+/* ================= 回到顶部 ================= */
+function initBackTop() {
+  const btn = document.createElement('button');
+  btn.id = 'backTop';
+  btn.className = 'back-top';
+  btn.title = '回到顶部';
+  btn.innerHTML = '↑';
+  btn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+  document.body.appendChild(btn);
+  const show = () => { btn.classList.toggle('show', window.scrollY > 400); };
+  window.addEventListener('scroll', show, { passive: true });
+  show();
+}
+
 /* ================= 启动 ================= */
 function init() {
   bindFilter();
@@ -1808,5 +1822,6 @@ function init() {
   renderPaper();
   loadFavs();
   loadTags();
+  initBackTop();
 }
 init();

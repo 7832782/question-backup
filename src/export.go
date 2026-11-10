@@ -21,6 +21,10 @@ type ExportRequest struct {
 }
 
 var qtypeNames = map[string]string{
+	"单选":  "单项选择题",
+	"多选":  "多项选择题",
+	"填空":  "填空题",
+	"解答":  "解答题",
 	"single": "单项选择题",
 	"multi":  "多项选择题",
 	"fill":   "填空题",
